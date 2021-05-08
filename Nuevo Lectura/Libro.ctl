@@ -24,13 +24,11 @@ Begin VB.UserControl Libro
    End
    Begin VB.CommandButton cmdPegar 
       Caption         =   "Pegar"
-      Enabled         =   0   'False
       Height          =   375
       Left            =   3840
       MousePointer    =   99  'Custom
       TabIndex        =   5
       Top             =   3840
-      Visible         =   0   'False
       Width           =   855
    End
    Begin VB.CommandButton cmdAnexar 
@@ -71,6 +69,7 @@ Begin VB.UserControl Libro
       _ExtentX        =   1296
       _ExtentY        =   873
       _Version        =   393217
+      Enabled         =   -1  'True
       TextRTF         =   $"Libro.ctx":0000
    End
    Begin RichTextLib.RichTextBox RtxtLibro 
@@ -82,7 +81,6 @@ Begin VB.UserControl Libro
       _ExtentX        =   10398
       _ExtentY        =   6588
       _Version        =   393217
-      Enabled         =   -1  'True
       ScrollBars      =   3
       TextRTF         =   $"Libro.ctx":0082
    End
@@ -127,7 +125,19 @@ Private vSegundos_de_lectura As Double
 Public Event EveSegundosLeyendo(Segundos_leyendo As Double)
 Public Event TiempoDeLectura(Horas As Integer, Minutos As Integer, Segundos As Integer)
 
+Public Property Get prHabilitarPegar() As Boolean
+    prHabilitarAnexar = cmdPegar.Enabled
+End Property
+Public Property Let prHabilitarPegar(Nuevo As Boolean)
+    cmdPegar.Enabled = Nuevo
+End Property
 
+Public Property Get prHabilitarAnexar() As Boolean
+    prHabilitarAnexar = cmdAnexar.Enabled
+End Property
+Public Property Let prHabilitarAnexar(Nuevo As Boolean)
+    cmdAnexar.Enabled = Nuevo
+End Property
 
 Public Property Get Text() As Variant
     Text = RtxtLibro.Text
@@ -172,8 +182,10 @@ Public Function fDepurandoTexto(ByRef Datos As Variant, Libro As Object) 'Depura
 On Error GoTo AccionesCorrectivas
 
 If Datos = "" Then 'Comprueba que los datos estan en blanco, de estarlo cancela la ejecucion del resto de la funcion para evitar un error.
-    MsgBox "Se acabó el libro", vbInformation
+    MsgBox "Se termino el libro", vbInformation
     sEnabledControles True
+    tSegundosDeLectura.Enabled = False
+    cmdAnexar.Enabled = True
     Exit Function
 End If
 
@@ -409,6 +421,7 @@ Private Sub cmdAnexar_MouseUp(Button As Integer, Shift As Integer, X As Single, 
 End Sub
 
 Private Sub cmdLeer_Click()
+    cmdAnexar.Enabled = False
     tSegundosDeLectura.Enabled = True 'no va aquí. Va en el evento DirectSS1_AudioStart.
     prDepurandoTextoUltimoTexto = "" 'Se borra la informacion de la propiedad porque ya ha sido concatenada al final de la propiedad prUltomosDatosLeidos.
     
@@ -732,6 +745,7 @@ End Sub
 
 Private Sub cmdLimpiar_Click()
     RtxtLibro.Text = ""
+    cmdPegar.Enabled = True
 End Sub
 
 Private Sub cmdLimpiar_MouseUp(Button As Integer, Shift As Integer, X As Single, Y As Single)
@@ -742,9 +756,17 @@ End Sub
 
 
 Private Sub cmdPegar_Click()
-    RtxtLibro.Text = Clipboard.GetText
-    
-    prLenDeLectura = Len(RtxtLibro.Text)
+'    With Me
+'        .prHorasLeyendo = 0
+'        .prMinutosLeyendo = 0
+'        .prSegundosDeLectura = 0
+'    End With
+'    RtxtLibro.Text = Clipboard.GetText
+'
+'    prLenDeLectura = Len(RtxtLibro.Text)
+    cmdPegar.Enabled = False
+    RtxtLibro.Text = ""
+    fGetTextoDelPortapapeles RtxtLibro
 End Sub
 
 Private Sub cmdPegar_MouseUp(Button As Integer, Shift As Integer, X As Single, Y As Single)
@@ -756,6 +778,10 @@ End Sub
 
 Private Sub mnuAnexarTexto_Click()
     cmdAnexar_Click
+End Sub
+
+Private Sub MnuPegar_Click()
+    cmdPegar_Click
 End Sub
 
 Private Sub RtxtLibro_MouseUp(Button As Integer, Shift As Integer, X As Single, Y As Single)

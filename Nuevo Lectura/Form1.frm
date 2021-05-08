@@ -161,12 +161,21 @@ End Sub
 
 Private Sub OptContinuar_Click()
     Hablar1.Continuar
+    Libro1.prHabilitarAnexar = OptParar.Value
+    Libro1.prHabilitarPegar = OptParar.Value
+  
 End Sub
 
 Private Sub OptParar_Click()
     Hablar1.Parar
+    Libro1.prHabilitarAnexar = OptParar.Value
+    Libro1.prHabilitarPegar = OptParar.Value
+  
 End Sub
 
 Private Sub OptPausa_Click()
     Hablar1.Pausa
+    Libro1.prHabilitarAnexar = OptPausa.Value
+    Libro1.prHabilitarPegar = OptParar.Value
+    
 End Sub

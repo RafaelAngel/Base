@@ -27,8 +27,6 @@ Begin VB.UserControl Hablar
       _ExtentY        =   1191
       _Version        =   393216
       Max             =   65535
-      SelStart        =   65535
-      Value           =   65535
    End
    Begin MSComctlLib.Slider SliderVelocidad 
       Height          =   555
@@ -41,8 +39,8 @@ Begin VB.UserControl Hablar
       _Version        =   393216
       Min             =   136
       Max             =   225
-      SelStart        =   225
-      Value           =   225
+      SelStart        =   136
+      Value           =   136
    End
    Begin MSComctlLib.Slider SliderNivelDeVoz 
       Height          =   555
@@ -54,8 +52,6 @@ Begin VB.UserControl Hablar
       _ExtentY        =   979
       _Version        =   393216
       Max             =   82
-      SelStart        =   2
-      Value           =   2
    End
    Begin VB.Label LbNivelDeVoz 
       Caption         =   "Nivel de voz"
