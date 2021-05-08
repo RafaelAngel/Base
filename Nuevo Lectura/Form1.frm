@@ -1,13 +1,23 @@
 VERSION 5.00
 Begin VB.Form FrmNuevoLectura 
    Caption         =   "Nuevo lectura"
-   ClientHeight    =   6105
+   ClientHeight    =   5625
    ClientLeft      =   1110
-   ClientTop       =   1710
-   ClientWidth     =   10140
+   ClientTop       =   2010
+   ClientWidth     =   9120
    LinkTopic       =   "Form1"
-   ScaleHeight     =   6105
-   ScaleWidth      =   10140
+   ScaleHeight     =   5625
+   ScaleWidth      =   9120
+   Begin VB.CommandButton CMDEnd 
+      Height          =   495
+      Left            =   8400
+      Picture         =   "Form1.frx":0000
+      Style           =   1  'Graphical
+      TabIndex        =   5
+      ToolTipText     =   "Cerrar este formulario"
+      Top             =   4920
+      Width           =   495
+   End
    Begin VB.OptionButton OptParar 
       Caption         =   "Parar"
       Height          =   495
@@ -30,6 +40,7 @@ Begin VB.Form FrmNuevoLectura
       Left            =   0
       TabIndex        =   2
       Top             =   4680
+      Value           =   -1  'True
       Width           =   1335
    End
    Begin Rnn.Libro Libro1 
@@ -50,6 +61,24 @@ Begin VB.Form FrmNuevoLectura
       _ExtentX        =   5106
       _ExtentY        =   8070
    End
+   Begin VB.Label LbStatus 
+      BorderStyle     =   1  'Fixed Single
+      Caption         =   "0"
+      Height          =   255
+      Left            =   0
+      TabIndex        =   6
+      Top             =   5400
+      Width           =   7815
+   End
+   Begin VB.Menu mnuSalir 
+      Caption         =   "Salir"
+   End
+   Begin VB.Menu MnuVer 
+      Caption         =   "Ver"
+      Begin VB.Menu MnuLibros 
+         Caption         =   "Libros"
+      End
+   End
 End
 Attribute VB_Name = "FrmNuevoLectura"
 Attribute VB_GlobalNameSpace = False
@@ -60,6 +89,9 @@ Option Explicit
 Private conteo As Integer
 
 
+Private Sub CMDEnd_Click()
+    Unload Me
+End Sub
 
 'Private Sub Command1_Click()
 ''Codigo para recrear el recorido del texto.
@@ -106,9 +138,25 @@ Private Sub Libro1_EveDeshabilitarControles(Habilitados As Boolean)
     'No por el momento.
 End Sub
 
+Private Sub Libro1_EveSegundosLeyendo(Segundos_leyendo As Double)
+'    Me.Caption = Segundos_leyendo
+End Sub
+
 Private Sub Libro1_EveSePuedeContinuar(Se_puede_continuar As Boolean)
     
     Se_puede_continuar = OptContinuar.Value
+End Sub
+
+Private Sub Libro1_TiempoDeLectura(Horas As Integer, Minutos As Integer, Segundos As Integer)
+    LbStatus.Caption = "Horas (" & Horas & "), minutos(" & Minutos & "), segundos(" & Segundos & ")"
+End Sub
+
+Private Sub MnuLibros_Click()
+    FrmLibrosLeidos.Show 'vbModal, Me
+End Sub
+
+Private Sub mnuSalir_Click()
+    CMDEnd_Click
 End Sub
 
 Private Sub OptContinuar_Click()

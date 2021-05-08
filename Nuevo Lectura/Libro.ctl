@@ -63,12 +63,12 @@ Begin VB.UserControl Libro
    End
    Begin RichTextLib.RichTextBox RtxtUltimoTextoLeido 
       Height          =   495
-      Left            =   0
+      Left            =   120
       TabIndex        =   1
-      Top             =   4560
+      Top             =   4440
       Visible         =   0   'False
-      Width           =   855
-      _ExtentX        =   1508
+      Width           =   735
+      _ExtentX        =   1296
       _ExtentY        =   873
       _Version        =   393217
       TextRTF         =   $"Libro.ctx":0000
@@ -84,7 +84,20 @@ Begin VB.UserControl Libro
       _Version        =   393217
       Enabled         =   -1  'True
       ScrollBars      =   3
-      TextRTF         =   $"Libro.ctx":008B
+      TextRTF         =   $"Libro.ctx":0082
+   End
+   Begin VB.Menu mnuPopUp 
+      Caption         =   "PopUp"
+      Visible         =   0   'False
+      Begin VB.Menu mnuAnexarTexto 
+         Caption         =   "Anexar texto"
+      End
+      Begin VB.Menu mnu_1 
+         Caption         =   "-"
+      End
+      Begin VB.Menu MnuPegar 
+         Caption         =   "Pegar"
+      End
    End
 End
 Attribute VB_Name = "Libro"
@@ -93,6 +106,7 @@ Attribute VB_Creatable = True
 Attribute VB_PredeclaredId = False
 Attribute VB_Exposed = False
 Option Explicit
+Private vSegundero As Integer 'Para el temporizador.
 Private vDepurandoTexto_ultimo_texto As Variant 'Variable para uso de la propiedad prDepurandoTextoUltimoTexto
 Public Event ClickLeerultimosDatos()
 Public Event ClickContinuar(Habilitar As Boolean)
@@ -130,12 +144,9 @@ Public Property Let SelText(Nuevo As Variant)
     MsgBox ("La propiedad es de solo lectura.")
 End Property
 
-Public Property Get PrLen() As Integer
-    PrLen = Len(RtxtLibro.Text)
-End Property
-Public Property Let PrLen(Nuevo As Integer)
-    MsgBox ("La propiedad es de solo lectura.")
-End Property
+Public Function FLen() As Integer
+    FLen = Len(RtxtLibro.Text)
+End Function
 
 
 Public Property Get SelStart() As Integer
@@ -224,9 +235,9 @@ Public Function fTextoSeleccionado() As Variant
     'lbStatus = "prSelStart " & prSelStart & " prLenDeLectura " & prLenDeLectura & " Tiempo leyendolo " & prHorasLeyendo & ":" & prMinutosLeyendo  'Datos en la barra de estado lbStatus.
     RaiseEvent EveStatusDeLectura("SelStart " & SelStart & " prLenDeLectura " & prLenDeLectura & " Tiempo leyendolo " & prHorasLeyendo & ":" & prMinutosLeyendo)
     
-    If SelStart < PrLen Then
+    If SelStart < FLen Then
     
-        If vMaxLen > PrLen Then vMaxLen = PrLen
+        If vMaxLen > FLen Then vMaxLen = FLen
         
             With RtxtLibro
                    .SelStart = SelStart 'Inicialmente la propiedad vale cero.
@@ -252,7 +263,7 @@ Public Function fTextoSeleccionado() As Variant
     Exit Function
 AccionesCorrectivas:     'A ver si con esto corrijo o descubro que hacer cuando se presente este error.
     
-    If vMaxLen > PrLen Then vMaxLen = PrLen
+    If vMaxLen > FLen Then vMaxLen = FLen
 
     With RtxtLibro
         .SelStart = SelStart 'Inicialmente la propiedad vale cero.
@@ -391,7 +402,14 @@ AccionesCorrectivas:
 End Property
 
 
+Private Sub cmdAnexar_MouseUp(Button As Integer, Shift As Integer, X As Single, Y As Single)
+    If Button = 2 Then
+        PopupMenu mnuPopUp
+    End If
+End Sub
+
 Private Sub cmdLeer_Click()
+    tSegundosDeLectura.Enabled = True 'no va aquí. Va en el evento DirectSS1_AudioStart.
     prDepurandoTextoUltimoTexto = "" 'Se borra la informacion de la propiedad porque ya ha sido concatenada al final de la propiedad prUltomosDatosLeidos.
     
     'OptContinuar_Click 'Activo el Option de la lectura
@@ -410,7 +428,16 @@ Private Sub cmdLeer_Click()
     sDecir fTextoSeleccionado
 End Sub
 
+Private Sub cmdLeer_MouseUp(Button As Integer, Shift As Integer, X As Single, Y As Single)
+    If Button = 2 Then
+        PopupMenu mnuPopUp
+    End If
+End Sub
+
+
 Private Sub cmdLeerUltimosDatos_Click()
+    tSegundosDeLectura.Enabled = True 'no va aquí. Va en el evento DirectSS1_AudioStart.
+    
     prDepurandoTextoUltimoTexto = "" 'Se borra la informacion de la propiedad porque ya ha sido concatenada al final de la propiedad prUltomosDatosLeidos.
     'ProgressBar1.Max = Len(RtxtLibro.Text)'No es necesario porque el Max se carga al cargar los datos de la base de datos.
     'OptParar_Click
@@ -521,7 +548,7 @@ End Property
 
 
 Private Function fStatusDeLaLectura() As Variant
-    fStatusDeLaLectura = prPorcentaje & "% de prSelStart=" & SelStart & " prLenDeLectura=" & prLenDeLectura & " Tiempo leyendolo " & prHorasLeyendo & ":" & prMinutosLeyendo    'Datos en la barra de estado lbStatus.
+    fStatusDeLaLectura = prPorcentaje & "% de prSelStart=" & SelStart & " prLenDeLectura=" & prLenDeLectura & " Tiempo leyendolo " & prHorasLeyendo & ":" & prMinutosLeyendo & ":" & prSegundosDeLectura   'Datos en la barra de estado lbStatus.
 End Function
 
 Private Function fValeCero(ByRef Nombre_del_procedimiento As Variant, ByVal Objeto_numerico_a_comprobar As Double, ByRef Nombre_del_objeto_numerico As Variant) As Boolean 'Comprueba la propiedad prMaximoDelValorReal a ver si vale cero o más...
@@ -679,33 +706,70 @@ Public Sub sLoadBackUp()
     'RichtxtLecturaEnProgreso = RichtxtBackUp
 End Sub
 
-Public Property Get prSegundos_de_lectura() As Double 'Guarda la cantidad de tiempo de cada fraccion de lectura.
+Public Property Get prSegundosDeLectura() As Double 'Guarda la cantidad de tiempo de cada fraccion de lectura.
     On Error GoTo N
     
-    prSegundos_de_lectura = vSegundos_de_lectura
+    prSegundosDeLectura = vSegundos_de_lectura
     Exit Property
 N:
-    MsgBox "Tengo problemas con prSegundos_de_lectura"
+    MsgBox "Tengo problemas con prSegundosDeLectura"
 End Property
-Public Property Let prSegundos_de_lectura(vNuevosDatos As Double)  'Guarda la cantidad de tiempo de cada fraccion de lectura.
+Public Property Let prSegundosDeLectura(vNuevosDatos As Double)  'Guarda la cantidad de tiempo de cada fraccion de lectura.
     On Error GoTo N
     
     vSegundos_de_lectura = vNuevosDatos
-    PropertyChanged "prSegundos_de_lectura"
+    PropertyChanged "prSegundosDeLectura"
     Exit Property
 N:
-    MsgBox "Tengo problemas con prSegundos_de_lectura"
+    MsgBox "Tengo problemas con prSegundosDeLectura"
 End Property
+
+Private Sub cmdLeerUltimosDatos_MouseUp(Button As Integer, Shift As Integer, X As Single, Y As Single)
+    If Button = 2 Then
+        PopupMenu mnuPopUp
+    End If
+End Sub
 
 Private Sub cmdLimpiar_Click()
     RtxtLibro.Text = ""
 End Sub
 
+Private Sub cmdLimpiar_MouseUp(Button As Integer, Shift As Integer, X As Single, Y As Single)
+    If Button = 2 Then
+        PopupMenu mnuPopUp
+    End If
+End Sub
+
+
+Private Sub cmdPegar_Click()
+    RtxtLibro.Text = Clipboard.GetText
+    
+    prLenDeLectura = Len(RtxtLibro.Text)
+End Sub
+
+Private Sub cmdPegar_MouseUp(Button As Integer, Shift As Integer, X As Single, Y As Single)
+    If Button = 2 Then
+        PopupMenu mnuPopUp
+    End If
+End Sub
+
+
+Private Sub mnuAnexarTexto_Click()
+    cmdAnexar_Click
+End Sub
+
+Private Sub RtxtLibro_MouseUp(Button As Integer, Shift As Integer, X As Single, Y As Single)
+    If Button = 2 Then
+        PopupMenu mnuPopUp
+    End If
+End Sub
+
+
 Private Sub tSegundosDeLectura_Timer()
-    prSegundos_de_lectura = prSegundos_de_lectura + 1
-    'lbTiempoTranscurido = prSegundos_de_lectura
-    RaiseEvent EveSegundosLeyendo(prSegundos_de_lectura)
-    Static vSegundero As Integer
+    prSegundosDeLectura = prSegundosDeLectura + 1
+    'lbTiempoTranscurido = prSegundosDeLectura
+    RaiseEvent EveSegundosLeyendo(prSegundosDeLectura)
+    
     vSegundero = vSegundero + 1
     
     If vSegundero = 60 Then
@@ -716,9 +780,15 @@ Private Sub tSegundosDeLectura_Timer()
         If prMinutosLeyendo >= 60 Then
             prHorasLeyendo = prHorasLeyendo + 1 'Se suma una hora más al cabo de 60 minutos.
             prMinutosLeyendo = 0 'Despues de 60 minutos, los minutos vuelven a cero.
-            RaiseEvent TiempoDeLectura(prHorasLeyendo, prMinutosLeyendo, vSegundero)
         End If
-        
     End If
-
+RaiseEvent TiempoDeLectura(prHorasLeyendo, prMinutosLeyendo, vSegundero)
 End Sub
+
+Private Sub UserControl_MouseUp(Button As Integer, Shift As Integer, X As Single, Y As Single)
+    If Button = 2 Then
+        PopupMenu mnuPopUp
+    End If
+End Sub
+
+
