@@ -69,7 +69,6 @@ Begin VB.UserControl Libro
       _ExtentX        =   1296
       _ExtentY        =   873
       _Version        =   393217
-      Enabled         =   -1  'True
       TextRTF         =   $"Libro.ctx":0000
    End
    Begin RichTextLib.RichTextBox RtxtLibro 
@@ -81,6 +80,7 @@ Begin VB.UserControl Libro
       _ExtentX        =   10398
       _ExtentY        =   6588
       _Version        =   393217
+      Enabled         =   -1  'True
       ScrollBars      =   3
       TextRTF         =   $"Libro.ctx":0082
    End
@@ -326,7 +326,7 @@ Private Sub sDecir(Datos As Variant)
         prUltomosDatosLeidos = fDepurandoTexto(Datos, RtxtLibro)  'Copia del ultimo texto leido.
         'DirectSS1.Speak "Hola Rafa"
         'DirectSS1.Speak prUltomosDatosLeidos   'vControles.fDepurandoTexto(Datos, RtxtLibro)  'Los datos se depuran en el Sub Decir; porque Decir se llama para leer los ultimos datos en una nueva secion. Los ultimos datos leidos estan sin depurar para evitar perdidas de informacion.
-        
+        fGuardarLibro 'Guarda la lectura en progreso. Originalmente se guardaba al guardar en base.
         RaiseEvent ClickIniciarLectura(prUltomosDatosLeidos)
         
         'Los ultimos datos se guardan automaticamente. Para evitar perdidas.
@@ -676,41 +676,46 @@ End Property
 Public Sub LoadLecturaEnProgreso()
 'Originalmente permitia guardar varios libros a la vez.
 'Lo que permitia leer varios libros en forma alternada.
-     sAbrirLecturaEnProgreso RtxtLibro, "LecturaEnProgreso.Lprg" 'CmbTitulo.Text
+     sAbrirLecturaEnProgreso RtxtLibro, "LecturaEnProgreso" 'CmbTitulo.Text
 End Sub
 
-Public Sub sAbrirLecturaEnProgreso(ByRef RichTextBox_nombre As Object, Nombre_del_libro As Variant) 'Abre el libro que se esta leyendo.
+Private Sub sAbrirLecturaEnProgreso(ByRef RichTextBox_nombre As Object, Nombre_del_libro As Variant) 'Abre el libro que se esta leyendo.
     On Error GoTo AccionesCorrectivas
-    RichTextBox_nombre.LoadFile App.Path & "\" & Nombre_del_libro & ".Lectura"   'Abre el archivo
+        RichTextBox_nombre.LoadFile App.Path & "\" & Nombre_del_libro & ".Lectura"   'Abre el archivo
     Exit Sub
 AccionesCorrectivas:
-    MsgBox "Tengo problemas con AbrirLecturaEnProgreso"
+        MsgBox "Tengo problemas con AbrirLecturaEnProgreso"
+End Sub
+
+Public Sub sAbrirLectura()
+    Const NOMBRE = "LecturaEnProgreso"
+    sAbrirLecturaEnProgreso RtxtLibro, NOMBRE
 End Sub
 
 Public Sub sAbrirBackUp(ByRef RichTextBox_nombre As Object, Nombre_del_libro As Variant) 'Abre el BackUp del libro que se esta leyendo.
     On Error GoTo AccionesCorrectivas
-    RichTextBox_nombre.Text = ""
-    RichTextBox_nombre.LoadFile App.Path & "\" & Nombre_del_libro & ".txtLeido"
+        RichTextBox_nombre.Text = ""
+        RichTextBox_nombre.LoadFile App.Path & "\" & Nombre_del_libro & ".txtLeido"
     Exit Sub
 AccionesCorrectivas:
-    MsgBox "Tengo problemas con AbrirBackUp"
+        MsgBox "Tengo problemas con AbrirBackUp"
 End Sub
 
 
-Public Function fGuardarLecturaEnProgreso(ByRef RichTextBox_nombre As Object, ByRef Nombre_del_libro As Variant) 'Guarda la lectura en progreso.
+Private Function fGuardarLecturaEnProgreso(ByRef RichTextBox_nombre As Object, ByRef Nombre_del_libro As Variant) 'Guarda la lectura en progreso.
     On Error GoTo AccionesCorrectivas
     RichTextBox_nombre.SaveFile App.Path & "\" & Nombre_del_libro & ".Lectura"
     fGuardarLecturaEnProgreso = App.Path & "\" & Nombre_del_libro & ".Lectura"
     Exit Function
 AccionesCorrectivas:
-    MsgBox "Tengo problemas con GuardarLecturaEnProgreso"
+    MsgBox "Tengo problemas con GuardarLecturaEnProgreso" & RTC & Err.Description
 End Function
 
 
 
 Public Function fGuardarLibro()
 'Se llama cuando se guarda en la base.
-    fGuardarLibro = fGuardarLecturaEnProgreso(RtxtLibro, "LecturaEnProgreso.LPrg") 'CmbTitulo.Text)
+    fGuardarLibro = fGuardarLecturaEnProgreso(RtxtLibro, "LecturaEnProgreso") 'CmbTitulo.Text)
 End Function
 
 Public Sub sLoadBackUp()
@@ -818,3 +823,20 @@ Private Sub UserControl_MouseUp(Button As Integer, Shift As Integer, X As Single
 End Sub
 
 
+Private Sub sEliminarLibro() 'Elimina la lectura en progreso y el BackUp.
+    On Error GoTo AccionesCorrectivas
+        
+        'Luego habilitar la siguiente linea para modificarla.
+        'Kill txtDireccion 'App.Path & "\" & CmbTitulo.Text & ".txtLeido"
+        
+        'La siguiente linea elimina el libro.
+        'Se debe habilitar y ,modificar.
+        'Kill App.Path & "\" & CmbTitulo.Text & ".txtLeido"
+        
+        
+        prMinutosLeyendo = 0
+        prHorasLeyendo = 0
+    Exit Sub
+AccionesCorrectivas:
+        MsgBox Err.Description '"Tengo problemas con clsRichlectura_sEliminarLibro" & RTC & "No se pudo eliminar el libro.", vbCritical
+End Sub

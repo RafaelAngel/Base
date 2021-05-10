@@ -114,13 +114,40 @@ Public Sub LoadDBs(Nombre_de_la_tabla As Variant)
     Cerrar 'Por si esta abierta con otra tabla.
     Conect.Provider = "Microsoft.Jet.OLEDB.4.0"
     'Aqui establesco la coneccion con la base de datos
-    Conect.ConnectionString = DBDir(App.Path & "/dbLectura.mdb") ' "D:\Proyectos\Alternativo\Notas.mdb"
+    Conect.ConnectionString = DBDir(App.Path & "/DbLectura2021.mdb") ' "D:\Proyectos\Alternativo\Notas.mdb"
     'Habre la conexion
     Conect.Open
     'Aqui se obtiene una serie de registros: en este
     'caso de la
     'tabla
     Records.Open "select * from " & Nombre_de_la_tabla, Conect, , adLockOptimistic
+    'Siguiente
+    'Anterior
+    RaiseEvent Actualizando
+    RaiseEvent Conectado(True)
+    'MsgBox "La tabla " & Nombre_de_la_tabla & " esta Conectada.", vbInformation
+    Exit Sub
+N:
+    MsgBox Err.Description, vbExclamation, "LoadDBs"
+    RaiseEvent Conectado(False)
+    RaiseEvent RsErr(Err.Description, " LoadDBs en clsevents")   '"No puedo conectar con la tabla.")
+    'LoadDBsAlternate Nombre_de_la_tabla
+    'Err.Raise 4000, "LoadDBs", Err.Description
+End Sub
+
+Public Sub LoadDBConSQL(Consulta_sql As Variant)
+    'Conecta con una base de datos
+    On Error GoTo N
+    Cerrar 'Por si esta abierta con otra tabla.
+    Conect.Provider = "Microsoft.Jet.OLEDB.4.0"
+    'Aqui establesco la coneccion con la base de datos
+    Conect.ConnectionString = DBDir(App.Path & "/DbLectura2021.mdb") ' "D:\Proyectos\Alternativo\Notas.mdb"
+    'Habre la conexion
+    Conect.Open
+    'Aqui se obtiene una serie de registros: en este
+    'caso de la
+    'tabla
+    Records.Open Consulta_sql, Conect, , adLockOptimistic
     'Siguiente
     'Anterior
     RaiseEvent Actualizando

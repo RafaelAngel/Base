@@ -70,8 +70,17 @@ Begin VB.Form FrmNuevoLectura
       Top             =   5400
       Width           =   7815
    End
-   Begin VB.Menu mnuSalir 
-      Caption         =   "Salir"
+   Begin VB.Menu mnuArchivo 
+      Caption         =   "Archivo"
+      Begin VB.Menu mnuAbrirLibro 
+         Caption         =   "Abrir libro"
+      End
+      Begin VB.Menu mnu_2 
+         Caption         =   "-"
+      End
+      Begin VB.Menu mnuSalir 
+         Caption         =   "Salir"
+      End
    End
    Begin VB.Menu MnuVer 
       Caption         =   "Ver"
@@ -149,6 +158,10 @@ End Sub
 
 Private Sub Libro1_TiempoDeLectura(Horas As Integer, Minutos As Integer, Segundos As Integer)
     LbStatus.Caption = "Horas (" & Horas & "), minutos(" & Minutos & "), segundos(" & Segundos & ")"
+End Sub
+
+Private Sub mnuAbrirLibro_Click()
+    Libro1.sAbrirLectura
 End Sub
 
 Private Sub MnuLibros_Click()

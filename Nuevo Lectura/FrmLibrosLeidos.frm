@@ -355,6 +355,14 @@ Private Enum Colores
     Verde = &HFF00&
     Defauld = &H8000000F
 End Enum
+Private WithEvents cLibros As clsDbx
+Attribute cLibros.VB_VarHelpID = -1
+Private WithEvents cAños As clsDbx
+Attribute cAños.VB_VarHelpID = -1
+Private WithEvents cTemas As clsDbx
+Attribute cTemas.VB_VarHelpID = -1
+Private WithEvents cAutores As clsDbx
+Attribute cAutores.VB_VarHelpID = -1
 
 Public Function fNombreDelArchivo(Direccion_de_la_carpeta As Variant) As Variant  'Nombre del video que se esta reproducioendo. Es de solo lectura.
     'On Error GoTo AccionesCorrectivas
@@ -388,6 +396,26 @@ Public Sub sArrastrarUnArchivo(Data As Object, TextBox_para_la_direccion As Obje
 AccionesCorrectivas:
     'MsgBox "Tengo problemas con sArrastrarUnArchivo"
 End Sub
+
+Private Sub cAños_Actualizando()
+    txtAñoDePublicasion.Text = cAños.fGetF("AñoDePublicasion")
+End Sub
+
+Private Sub cAutores_Actualizando()
+    txtAutor.Text = cAutores.fGetF("Autor_o_autores")
+End Sub
+
+Private Sub cLibros_Actualizando()
+    With cLibros
+        cmbNombreDelLibro.Text = .fGetF("NombreDelLibro")
+        txtPaginasLen.Text = .fGetF("CantidadDePaginas")
+        txtDireccionURL.Text = .fGetF("DireccionURL")
+        txtNotas.Text = .fGetF("Notas")
+        
+    End With
+End Sub
+
+
 
 Private Sub cmbNombreDelLibro_DragDrop(Source As Control, X As Single, Y As Single)
     'sArrastrarUnArchivo Data, txtDireccionURL, cmbNombreDelLibro
@@ -444,6 +472,10 @@ Private Sub CmdUltimo_DragDrop(Source As Control, X As Single, Y As Single)
     'sArrastrarUnArchivo Data, txtDireccionURL, cmbNombreDelLibro
 End Sub
 
+Private Sub cTemas_Actualizando()
+    txtTemaDelLibro.Text = cTemas.fGetF("Tema")
+End Sub
+
 Private Sub Form_DragDrop(Source As Control, X As Single, Y As Single)
     Select Case VarTipo(Source)
     Case "TextBox", "ComboBox"
@@ -458,6 +490,26 @@ Private Sub Form_DragDrop(Source As Control, X As Single, Y As Single)
 
     'sArrastrarUnArchivo Data, txtDireccionURL, cmbNombreDelLibro
 End Sub
+
+Private Sub Form_Load()
+    Set cLibros = New clsDbx
+    cLibros.LoadDBs "Libros"
+    cLibros.mPrimero
+    
+    Set cAños = New clsDbx
+    cAños.LoadDBConSQL ("Select a.AñoDePublicasion from Años as a, Relacion r, Libros as L where L.IdLibro=" & cLibros.fGetF("IdLibro") & " And L.IdLibro=r.IdLibro And r.IdAño=a.IdAño order by a.IdAño")
+    cAños.mPrimero
+    
+    Set cTemas = New clsDbx
+    cTemas.LoadDBConSQL ("Select t.Tema from Temas as t, Relacion r, Libros as L where L.IdLibro=" & cLibros.fGetF("IdLibro") & " And L.IdLibro=r.IdLibro And r.IdTema=t.IdTema order by t.IdTema")
+    cTemas.mPrimero
+    
+    
+    Set cAutores = New clsDbx
+    cAutores.LoadDBConSQL ("Select Autors.Autor_o_autores from Autores as Autors, Relacion r, Libros as L where L.IdLibro=" & cLibros.fGetF("IdLibro") & " And L.IdLibro=r.IdLibro And r.IdAutor=Autors.IdAutor order by Autors.IdAutor")
+    cAutores.mPrimero
+End Sub
+
 
 Private Sub lbAñoDePublicasion_DragDrop(Source As Control, X As Single, Y As Single)
     'sArrastrarUnArchivo Data, txtDireccionURL, cmbNombreDelLibro
