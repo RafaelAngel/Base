@@ -1,0 +1,94 @@
+[Root]
+Most Recent Package=Asistente de creacion de tablas MySQL instalable
+
+
+[Package|Asistente de creacion de tablas MySQL instalable|Root]
+SubWizProgID=PDWizard.SetupPkgSubWiz
+BuildFolder=C:\Documents and Settings\Administrador\Escritorio\Asistente de tablas MySQL\Paquete
+
+[Package|Asistente de creacion de tablas MySQL instalable|Configure DAO ISAMs]
+Applicable=No
+
+[Package|Asistente de creacion de tablas MySQL instalable|Configure DAO ODBC]
+JetWorkspace=
+ODBCDirect=
+
+[Package|Asistente de creacion de tablas MySQL instalable|Files Found]
+
+[Package|Asistente de creacion de tablas MySQL instalable|Files Released]
+
+[Package|Asistente de creacion de tablas MySQL instalable|Missing Dependency Information]
+
+[Package|Asistente de creacion de tablas MySQL instalable|Out-of-Date Dependency Information]
+
+[Package|Asistente de creacion de tablas MySQL instalable|Files Added]
+
+[Package|Asistente de creacion de tablas MySQL instalable|Files Removed]
+
+[Package|Asistente de creacion de tablas MySQL instalable|Files In Project]
+C:\Documents and Settings\Administrador\Escritorio\Asistente de tablas MySQL\AsistenteMySQL.exe=Yes
+C:\WINDOWS\system32\msvbvm60.dll=Yes
+C:\Archivos de programa\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\OLEAUT32.DLL=Yes
+C:\Archivos de programa\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\OLEPRO32.DLL=Yes
+C:\Archivos de programa\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\ASYCFILT.DLL=Yes
+C:\Archivos de programa\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\STDOLE2.TLB=Yes
+C:\Archivos de programa\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\COMCAT.DLL=Yes
+C:\WINDOWS\system32\VB6ES.DLL=Yes
+C:\WINDOWS\system32\MSCOMCTL.OCX=Yes
+C:\WINDOWS\system32\MSCMCES.DLL=Yes
+C:\Archivos de programa\Microsoft Visual Studio\VB98\Wizards\PDWizard\SETUP.EXE=Yes
+C:\Archivos de programa\Microsoft Visual Studio\VB98\Wizards\PDWizard\SETUP1.EXE=Yes
+C:\WINDOWS\system32\VB6STKIT.DLL=Yes
+C:\Archivos de programa\Microsoft Visual Studio\VB98\Wizards\PDWizard\ST6UNST.EXE=Yes
+
+[Package|Asistente de creacion de tablas MySQL instalable|Configure Registry Files]
+Applicable=No
+
+[Package|Asistente de creacion de tablas MySQL instalable|Configure Remote Servers]
+Applicable=No
+
+[Package|Asistente de creacion de tablas MySQL instalable|Install Locations]
+C:\Documents and Settings\Administrador\Escritorio\Asistente de tablas MySQL\AsistenteMySQL.exe=$(AppPath)
+C:\WINDOWS\system32\msvbvm60.dll=$(WinSysPathSysFile)
+C:\Archivos de programa\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\OLEAUT32.DLL=$(WinSysPathSysFile)
+C:\Archivos de programa\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\OLEPRO32.DLL=$(WinSysPathSysFile)
+C:\Archivos de programa\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\ASYCFILT.DLL=$(WinSysPathSysFile)
+C:\Archivos de programa\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\STDOLE2.TLB=$(WinSysPathSysFile)
+C:\Archivos de programa\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\COMCAT.DLL=$(WinSysPathSysFile)
+C:\WINDOWS\system32\VB6ES.DLL=$(WinSysPath)
+C:\WINDOWS\system32\MSCOMCTL.OCX=$(WinSysPath)
+C:\WINDOWS\system32\MSCMCES.DLL=$(WinSysPath)
+C:\Archivos de programa\Microsoft Visual Studio\VB98\Wizards\PDWizard\SETUP.EXE=$(AppPath)
+C:\Archivos de programa\Microsoft Visual Studio\VB98\Wizards\PDWizard\SETUP1.EXE=$(WinPath)
+C:\WINDOWS\system32\VB6STKIT.DLL=$(WinSysPathSysFile)
+C:\Archivos de programa\Microsoft Visual Studio\VB98\Wizards\PDWizard\ST6UNST.EXE=$(WinPath)
+
+[Package|Asistente de creacion de tablas MySQL instalable|Configure Shared Files]
+Applicable=Yes
+C:\Documents and Settings\Administrador\Escritorio\Asistente de tablas MySQL\AsistenteMySQL.exe=No
+
+[Package|Asistente de creacion de tablas MySQL instalable|Distribution]
+Type=single
+Size=
+Title=AsistenteMySQL instalable
+
+[Package|Asistente de creacion de tablas MySQL instalable|IconGroups]
+Group0=AsistenteMySQL instalable
+PrivateGroup0=-1
+Parent0=$(Programs)
+
+[Package|Asistente de creacion de tablas MySQL instalable|AsistenteMySQL instalable]
+Icon1=AsistenteMySQL.exe
+Title1=AsistenteMySQL instalable
+StartIn1=$(AppPath)
+Key1=Icon1
+
+[Package|Asistente de creacion de tablas MySQL instalable|Package]
+PackageFolder=C:\Documents and Settings\Administrador\Escritorio\Asistente de tablas MySQL\Paquete
+ProjectFolder=C:\Documents and Settings\Administrador\Escritorio\Asistente de tablas MySQL
+ServerSideCab=
+File1=C:\Documents and Settings\Administrador\Escritorio\Asistente de tablas MySQL\Paquete\setup.exe
+File2=C:\Documents and Settings\Administrador\Escritorio\Asistente de tablas MySQL\Paquete\Setup.Lst
+File3=C:\Documents and Settings\Administrador\Escritorio\Asistente de tablas MySQL\Paquete\AsistenteMySQL.CAB
+Handler1=PDWizard.FolderDplySubWiz
+Handler2=PDWizard.WebPostDplySubWiz

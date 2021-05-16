@@ -1,0 +1,10 @@
+frmCreadorDeTablas = 33, 34, 748, 553, C, 0, 0, 0, 0, C
+frmValoresDelChar = 149, 129, 1114, 651, C, 0, 0, 0, 0, C
+mdlConstantes = -12, 51, 696, 534, C
+frmTiposDeDatos = 75, 47, 764, 561, C, 0, 0, 0, 0, C
+ConsultaSelect = 139, 117, 724, 499, CZ, 123, 51, 696, 513, C
+mdlEnums = 165, 70, 653, 469, C
+frmWhere = 55, 101, 689, 548, CZ, 0, 0, 0, 0, C
+frmConsultaSelect = 139, 117, 627, 516, C, 0, 0, 0, 0, C
+frmInsert = 139, 117, 627, 516, C, 0, 0, 0, 0, C
+ConsultaInsert = 25, 102, 631, 473, C, 109, 87, 774, 486, C

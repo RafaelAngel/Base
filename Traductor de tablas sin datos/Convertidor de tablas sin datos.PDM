@@ -1,0 +1,122 @@
+[Root]
+Most Recent Package=Instalacion de TraductorDBSimple
+
+
+[Package|Instalacion de TraductorDBSimple|Root]
+SubWizProgID=PDWizard.SetupPkgSubWiz
+BuildFolder=C:\Documents and Settings\Administrador\Escritorio\Traductor de tablas sin datos\Paquete
+
+[Package|Instalacion de TraductorDBSimple|Configure DAO ISAMs]
+Applicable=No
+
+[Package|Instalacion de TraductorDBSimple|Configure DAO ODBC]
+JetWorkspace=
+ODBCDirect=
+
+[Package|Instalacion de TraductorDBSimple|Files Found]
+
+[Package|Instalacion de TraductorDBSimple|Files Released]
+
+[Package|Instalacion de TraductorDBSimple|Missing Dependency Information]
+C:\Archivos de programa\Archivos comunes\System\ado\msadox.dll=
+
+[Package|Instalacion de TraductorDBSimple|Out-of-Date Dependency Information]
+C:\WINDOWS\system32\MSCOMCTL.OCX=
+C:\Documents and Settings\Administrador\Mis documentos\Toda la base de datos\Busquedas\A_Busquedas.ocx=
+
+[Package|Instalacion de TraductorDBSimple|Files Added]
+
+[Package|Instalacion de TraductorDBSimple|Files Removed]
+
+[Package|Instalacion de TraductorDBSimple|Files In Project]
+C:\Documents and Settings\Administrador\Escritorio\Traductor de tablas sin datos\ConvertirDB.exe=Yes
+C:\WINDOWS\system32\msvbvm60.dll=Yes
+C:\Archivos de programa\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\OLEAUT32.DLL=Yes
+C:\Archivos de programa\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\OLEPRO32.DLL=Yes
+C:\Archivos de programa\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\ASYCFILT.DLL=Yes
+C:\Archivos de programa\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\STDOLE2.TLB=Yes
+C:\Archivos de programa\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\COMCAT.DLL=Yes
+C:\WINDOWS\system32\VB6ES.DLL=Yes
+C:\Archivos de programa\Archivos comunes\System\ado\msadox.dll=Yes
+C:\WINDOWS\system32\COMDLG32.OCX=Yes
+C:\WINDOWS\system32\CMDLGES.DLL=Yes
+C:\Documents and Settings\Administrador\Mis documentos\Toda la base de datos\Busquedas\A_Busquedas.ocx=Yes
+C:\Archivos de programa\Archivos comunes\Microsoft Shared\DAO\dao360.dll=Yes
+C:\WINDOWS\system32\MSCOMCTL.OCX=Yes
+C:\WINDOWS\system32\MSSTKPRP.DLL=Yes
+C:\WINDOWS\system32\MSPRPES.DLL=Yes
+C:\Documents and Settings\Administrador\Mis documentos\Toda la base de datos\Busquedas\registrar A_Busquedas.bat=Yes
+C:\Archivos de programa\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\MDAC_TYP.EXE=Yes
+C:\Archivos de programa\Microsoft Visual Studio\VB98\Wizards\PDWizard\SETUP.EXE=Yes
+C:\Archivos de programa\Microsoft Visual Studio\VB98\Wizards\PDWizard\SETUP1.EXE=Yes
+C:\WINDOWS\system32\VB6STKIT.DLL=Yes
+C:\Archivos de programa\Microsoft Visual Studio\VB98\Wizards\PDWizard\ST6UNST.EXE=Yes
+C:\WINDOWS\system32\RICHTX32.OCX=Yes
+C:\Archivos de programa\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\RICHED32.DLL=Yes
+C:\WINDOWS\system32\RCHTXES.DLL=Yes
+
+[Package|Instalacion de TraductorDBSimple|Configure Registry Files]
+Applicable=No
+
+[Package|Instalacion de TraductorDBSimple|Configure Remote Servers]
+Applicable=No
+
+[Package|Instalacion de TraductorDBSimple|Install Locations]
+C:\Documents and Settings\Administrador\Escritorio\Traductor de tablas sin datos\ConvertirDB.exe=$(AppPath)
+C:\WINDOWS\system32\msvbvm60.dll=$(WinSysPathSysFile)
+C:\Archivos de programa\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\OLEAUT32.DLL=$(WinSysPathSysFile)
+C:\Archivos de programa\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\OLEPRO32.DLL=$(WinSysPathSysFile)
+C:\Archivos de programa\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\ASYCFILT.DLL=$(WinSysPathSysFile)
+C:\Archivos de programa\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\STDOLE2.TLB=$(WinSysPathSysFile)
+C:\Archivos de programa\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\COMCAT.DLL=$(WinSysPathSysFile)
+C:\WINDOWS\system32\VB6ES.DLL=$(WinSysPath)
+C:\Archivos de programa\Archivos comunes\System\ado\msadox.dll=$(WinSysPath)
+C:\WINDOWS\system32\COMDLG32.OCX=$(WinSysPath)
+C:\WINDOWS\system32\CMDLGES.DLL=$(WinSysPath)
+C:\Documents and Settings\Administrador\Mis documentos\Toda la base de datos\Busquedas\A_Busquedas.ocx=$(AppPath)
+C:\Archivos de programa\Archivos comunes\Microsoft Shared\DAO\dao360.dll=$(WinSysPath)
+C:\WINDOWS\system32\MSCOMCTL.OCX=$(WinSysPath)
+C:\WINDOWS\system32\MSSTKPRP.DLL=$(WinSysPath)
+C:\WINDOWS\system32\MSPRPES.DLL=$(WinSysPath)
+C:\Documents and Settings\Administrador\Mis documentos\Toda la base de datos\Busquedas\registrar A_Busquedas.bat=$(AppPath)
+C:\Archivos de programa\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\MDAC_TYP.EXE=$(AppPath)
+C:\Archivos de programa\Microsoft Visual Studio\VB98\Wizards\PDWizard\SETUP.EXE=$(AppPath)
+C:\Archivos de programa\Microsoft Visual Studio\VB98\Wizards\PDWizard\SETUP1.EXE=$(WinPath)
+C:\WINDOWS\system32\VB6STKIT.DLL=$(WinSysPathSysFile)
+C:\Archivos de programa\Microsoft Visual Studio\VB98\Wizards\PDWizard\ST6UNST.EXE=$(WinPath)
+C:\WINDOWS\system32\RICHTX32.OCX=$(WinSysPath)
+C:\Archivos de programa\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\RICHED32.DLL=$(WinSysPathSysFile)
+C:\WINDOWS\system32\RCHTXES.DLL=$(WinSysPath)
+
+[Package|Instalacion de TraductorDBSimple|Configure Shared Files]
+Applicable=Yes
+C:\Documents and Settings\Administrador\Escritorio\Traductor de tablas sin datos\ConvertirDB.exe=No
+C:\Documents and Settings\Administrador\Mis documentos\Toda la base de datos\Busquedas\A_Busquedas.ocx=Yes
+C:\Documents and Settings\Administrador\Mis documentos\Toda la base de datos\Busquedas\registrar A_Busquedas.bat=Yes
+C:\Archivos de programa\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\MDAC_TYP.EXE=Yes
+
+[Package|Instalacion de TraductorDBSimple|Distribution]
+Type=single
+Size=
+Title=TraductorDBSimple
+
+[Package|Instalacion de TraductorDBSimple|Package]
+PackageFolder=C:\Documents and Settings\Administrador\Escritorio\Traductor de tablas sin datos\Paquete
+ProjectFolder=C:\Documents and Settings\Administrador\Escritorio\Traductor de tablas sin datos
+ServerSideCab=
+File1=C:\Documents and Settings\Administrador\Escritorio\Traductor de tablas sin datos\Paquete\setup.exe
+File2=C:\Documents and Settings\Administrador\Escritorio\Traductor de tablas sin datos\Paquete\Setup.Lst
+File3=C:\Documents and Settings\Administrador\Escritorio\Traductor de tablas sin datos\Paquete\ConvertirDB.CAB
+Handler1=PDWizard.FolderDplySubWiz
+Handler2=PDWizard.WebPostDplySubWiz
+
+[Package|Instalacion de TraductorDBSimple|IconGroups]
+Group0=TraductorDBSimple
+PrivateGroup0=-1
+Parent0=$(Programs)
+
+[Package|Instalacion de TraductorDBSimple|TraductorDBSimple]
+Icon1=ConvertirDB.exe
+Title1=TraductorDBSimple
+StartIn1=$(AppPath)
+Key1=Icon1

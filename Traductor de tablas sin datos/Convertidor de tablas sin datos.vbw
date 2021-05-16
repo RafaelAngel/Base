@@ -1,0 +1,11 @@
+frmPrincipal = 139, 117, 627, 516, C, 0, 0, 0, 0, C
+Coneccion = 0, 0, 0, 0, C, 109, 87, 597, 486, C
+clsObtenerBase = 0, 0, 0, 0, C
+clsDatos = 0, 0, 0, 0, C
+clsCampos = 0, 0, 0, 0, C
+clsTraductorDB = 132, 117, 620, 516, C
+clsCrearMySQL = 0, 0, 0, 0, C
+clsDatosDeUnaColumna = 0, 0, 0, 0, C
+mdlConstantes = 132, 117, 620, 516, C
+frmCrearScript = 139, 117, 627, 516, C, 0, 0, 0, 0, C
+ClsUsoDeArchivos = 132, 117, 620, 516, 

@@ -1,0 +1,9 @@
+frmPrincipal = 75, 163, 970, 638, C, 0, 0, 0, 0, C
+Coneccion = 149, 129, 1036, 620, C, 118, 98, 955, 686, C
+clsObtenerBase = 149, 129, 922, 577, C
+clsDatos = 29, 95, 914, 661, C
+clsCampos = 0, 0, 0, 0, C
+clsTraductorDB = 29, 103, 954, 684, 
+clsCrearMySQL = 136, 117, 965, 707, C
+clsDatosDeUnaColumna = 136, 117, 624, 684, C
+mdlConstantes = 136, 117, 624, 684, C
