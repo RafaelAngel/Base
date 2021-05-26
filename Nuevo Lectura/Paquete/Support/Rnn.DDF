@@ -1,0 +1,45 @@
+.OPTION EXPLICIT
+.Set Cabinet=off
+.Set Compress=off
+.Set MaxDiskSize=CDROM
+.Set ReservePerCabinetSize=6144
+.Set DiskDirectoryTemplate=".."
+.Set CompressionType=MSZIP
+.Set CompressionLevel=7
+.Set CompressionMemory=21
+.Set CabinetNameTemplate="Rnn.CAB"
+"Setup.Lst"
+"setup.exe"
+.Set Cabinet=on
+.Set Compress=on
+"Rnn.exe"
+"msvbvm60.dll"
+"OLEAUT32.DLL"
+"OLEPRO32.DLL"
+"ASYCFILT.DLL"
+"STDOLE2.TLB"
+"COMCAT.DLL"
+"VB6ES.DLL"
+"Xvoice.dll"
+"Recursos.dll"
+"dao360.dll"
+"MSCOMCTL.OCX"
+"COMDLG32.OCX"
+"CMDLGES.DLL"
+"MSCAL.OCX"
+"MSSTDFMT.DLL"
+"STDFTES.DLL"
+"RICHTX32.OCX"
+"RICHED32.DLL"
+"RCHTXES.DLL"
+"MSDERUN.DLL"
+"MSCDRUN.DLL"
+"MSRDO20.DLL"
+"RDOCURS.DLL"
+"RDO20ES.DLL"
+"CONNDES.DLL"
+"MSBIND.DLL"
+"MDAC_TYP.EXE"
+"SETUP1.EXE"
+"VB6STKIT.DLL"
+"ST6UNST.EXE"

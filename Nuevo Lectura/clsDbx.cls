@@ -155,9 +155,9 @@ Public Sub LoadDBConSQL(Consulta_sql As Variant)
     'MsgBox "La tabla " & Nombre_de_la_tabla & " esta Conectada.", vbInformation
     Exit Sub
 N:
-    MsgBox Err.Description, vbExclamation, "LoadDBs"
+    MsgBox Err.Description, vbExclamation, "LoadDBsConSQL"
     RaiseEvent Conectado(False)
-    RaiseEvent RsErr(Err.Description, " LoadDBs en clsevents")   '"No puedo conectar con la tabla.")
+    RaiseEvent RsErr(Err.Description & RTC & RTC & Consulta_sql, " LoadDBConSQL en clsevents")   '"No puedo conectar con la tabla.")
     'LoadDBsAlternate Nombre_de_la_tabla
     'Err.Raise 4000, "LoadDBs", Err.Description
 End Sub
@@ -186,18 +186,20 @@ N:
 End Function
 
 Public Sub Nuevo()
-'Agrega un nuevo registro pero tambien debe usarse el _
-procedimiento limpiar.
+    'Agrega un nuevo registro pero tambien debe usarse el _
+    procedimiento limpiar.
 On Error GoTo N
-Records.AddNew
-RaiseEvent ControlesDeshabilitados
-RaiseEvent LimpiandoParaAgregarNuevoRegistro
-RaiseEvent NuevoRegistro
-RaiseEvent Actualizando 'El ultimo evento en ser llamado es Actualizando.
-Exit Sub
+    Records.AddNew
+    RaiseEvent ControlesDeshabilitados
+    RaiseEvent LimpiandoParaAgregarNuevoRegistro
+    RaiseEvent NuevoRegistro
+    
+    'No se debe llamar a este evento.
+    'RaiseEvent Actualizando 'El ultimo evento en ser llamado es Actualizando.
+    Exit Sub
 N:
-RaiseEvent RsErr("No puedo crear un nuevo registro. ", "Nuevo en clsEvents")
-Exit Sub
+    RaiseEvent RsErr("No puedo crear un nuevo registro. ", "Nuevo en clsEvents")
+    Exit Sub
 End Sub
 
 Private Sub MsgErr(Informacion_del_error As Variant, _
@@ -532,6 +534,7 @@ Public Function fGetF(FieldNombre As Variant)
     fGetF = Records.Fields(FieldNombre)
     Exit Function
 N:
+    fGetF = ""
     'RaiseEvent RsErr("No puedo recuperar los datos de fuction fGetF.", "fGetF en clsEvents")
     'R.msgB App.EXEName, "fGetF en clsEvents", Err.Description, enClass
 End Function
@@ -542,6 +545,7 @@ Public Sub LetField(Campo_TextBox_para_el_Field As TextBox, _
     'debe usarse el evento guardar o sendfields.
     Records.Update
     Records.Fields(Nombre_del_Field_en_la_tabla) = Campo_TextBox_para_el_Field
+    RaiseEvent Actualizando
     Exit Sub
 N:
     'RaiseEvent RsErr("No puedo realizar LetField. LetField(Guardar)", "Let field en clsevents")
@@ -550,13 +554,14 @@ End Sub
 
 Public Sub LetF(Datos As Variant, _
     Nombre_del_Field_en_la_tabla As Variant)
-    'On Error GoTo N
+    On Error GoTo N
     'Se supone que esto es lo mismo que guardar pero guarda field por field.
     'debe usarse el evento guardar o sendfields.
-    Records.Update
+    Records.Update Nombre_del_Field_en_la_tabla, Datos
+    'Si no funciona habilitar este otro.
     Records.Fields(Nombre_del_Field_en_la_tabla) = Datos
     Exit Sub
-    'N:
+N:
     MsgBox Err.Description, , "LetF"
     'RaiseEvent RsErr("No puedo realizar LetField. LetField(Guardar)", "Let field en clsevents")
 End Sub

@@ -44,13 +44,13 @@ Begin VB.Form FrmNuevoLectura
       Width           =   1335
    End
    Begin Rnn.Libro Libro1 
-      Height          =   4335
+      Height          =   4695
       Left            =   3000
       TabIndex        =   1
       Top             =   0
       Width           =   6015
-      _ExtentX        =   10610
-      _ExtentY        =   7646
+      _extentx        =   10610
+      _extenty        =   7646
    End
    Begin Rnn.Hablar Hablar1 
       Height          =   4575
@@ -58,8 +58,8 @@ Begin VB.Form FrmNuevoLectura
       TabIndex        =   0
       Top             =   0
       Width           =   2895
-      _ExtentX        =   5106
-      _ExtentY        =   8070
+      _extentx        =   5106
+      _extenty        =   8070
    End
    Begin VB.Label LbStatus 
       BorderStyle     =   1  'Fixed Single
@@ -96,10 +96,16 @@ Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = False
 Option Explicit
 Private conteo As Integer
-
+'Private ClsLibro As New clsLecturaEnProgreso
 
 Private Sub CMDEnd_Click()
     Unload Me
+End Sub
+
+
+
+Private Sub Form_Unload(Cancel As Integer)
+    Libro1.GuardarPropiedades
 End Sub
 
 'Private Sub Command1_Click()

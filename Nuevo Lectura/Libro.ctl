@@ -1,12 +1,216 @@
 VERSION 5.00
 Object = "{3B7C8863-D78F-101B-B9B5-04021C009402}#1.2#0"; "RICHTX32.OCX"
 Begin VB.UserControl Libro 
-   ClientHeight    =   4965
+   ClientHeight    =   4665
    ClientLeft      =   0
    ClientTop       =   0
-   ClientWidth     =   5985
-   ScaleHeight     =   4965
-   ScaleWidth      =   5985
+   ClientWidth     =   9660
+   ScaleHeight     =   4665
+   ScaleWidth      =   9660
+   Begin VB.TextBox txtSegundosLeyendo 
+      DataField       =   "SegundosLeyendo"
+      BeginProperty DataFormat 
+         Type            =   1
+         Format          =   "0"
+         HaveTrueFalseNull=   0
+         FirstDayOfWeek  =   0
+         FirstWeekOfYear =   0
+         LCID            =   1034
+         SubFormatType   =   1
+      EndProperty
+      DataMember      =   "LecturaEnProgreso"
+      DataSource      =   "DataEnvironment1"
+      Height          =   405
+      Left            =   6240
+      TabIndex        =   17
+      Text            =   "0"
+      Top             =   3000
+      Visible         =   0   'False
+      Width           =   540
+   End
+   Begin VB.TextBox TxtNombreDelLibro 
+      DataField       =   "NombreDelLibro"
+      DataMember      =   "LecturaEnProgreso"
+      DataSource      =   "DataEnvironment1"
+      Height          =   375
+      Left            =   6240
+      TabIndex        =   16
+      Text            =   "0"
+      Top             =   2400
+      Visible         =   0   'False
+      Width           =   495
+   End
+   Begin VB.TextBox TxtDepurandoTextoUltimoTexto 
+      DataField       =   "DepurandoTextoUltimoTexto"
+      DataMember      =   "LecturaEnProgreso"
+      DataSource      =   "DataEnvironment1"
+      Height          =   375
+      Left            =   6240
+      TabIndex        =   15
+      Text            =   "0"
+      Top             =   1800
+      Visible         =   0   'False
+      Width           =   495
+   End
+   Begin VB.TextBox TxtHorasLeyendo 
+      DataField       =   "HorasLeyendo"
+      BeginProperty DataFormat 
+         Type            =   1
+         Format          =   "0"
+         HaveTrueFalseNull=   0
+         FirstDayOfWeek  =   0
+         FirstWeekOfYear =   0
+         LCID            =   1034
+         SubFormatType   =   1
+      EndProperty
+      DataMember      =   "LecturaEnProgreso"
+      DataSource      =   "DataEnvironment1"
+      Height          =   375
+      Left            =   6240
+      TabIndex        =   14
+      Text            =   "0"
+      Top             =   1200
+      Visible         =   0   'False
+      Width           =   495
+   End
+   Begin VB.TextBox TxtLenDeLectura 
+      DataField       =   "LenDeLectura"
+      BeginProperty DataFormat 
+         Type            =   1
+         Format          =   "0"
+         HaveTrueFalseNull=   0
+         FirstDayOfWeek  =   0
+         FirstWeekOfYear =   0
+         LCID            =   1034
+         SubFormatType   =   1
+      EndProperty
+      DataMember      =   "LecturaEnProgreso"
+      DataSource      =   "DataEnvironment1"
+      Height          =   375
+      Left            =   6240
+      TabIndex        =   13
+      Text            =   "0"
+      Top             =   600
+      Visible         =   0   'False
+      Width           =   495
+   End
+   Begin VB.TextBox TxtLenIncrementalDelTexto 
+      DataField       =   "LenIncrementalDelTexto"
+      BeginProperty DataFormat 
+         Type            =   1
+         Format          =   "0"
+         HaveTrueFalseNull=   0
+         FirstDayOfWeek  =   0
+         FirstWeekOfYear =   0
+         LCID            =   1034
+         SubFormatType   =   1
+      EndProperty
+      DataMember      =   "LecturaEnProgreso"
+      DataSource      =   "DataEnvironment1"
+      Height          =   375
+      Left            =   6240
+      TabIndex        =   12
+      Text            =   "0"
+      Top             =   0
+      Visible         =   0   'False
+      Width           =   495
+   End
+   Begin VB.TextBox TxtMaximoDelValorReal 
+      DataField       =   "MaximoDelValorReal"
+      BeginProperty DataFormat 
+         Type            =   1
+         Format          =   "0"
+         HaveTrueFalseNull=   0
+         FirstDayOfWeek  =   0
+         FirstWeekOfYear =   0
+         LCID            =   1034
+         SubFormatType   =   1
+      EndProperty
+      DataMember      =   "LecturaEnProgreso"
+      DataSource      =   "DataEnvironment1"
+      Height          =   375
+      Left            =   7200
+      TabIndex        =   11
+      Text            =   "0"
+      Top             =   2400
+      Visible         =   0   'False
+      Width           =   495
+   End
+   Begin VB.TextBox TxtMinutosLeyendo 
+      DataField       =   "MinutosLeyendo"
+      BeginProperty DataFormat 
+         Type            =   1
+         Format          =   "0"
+         HaveTrueFalseNull=   0
+         FirstDayOfWeek  =   0
+         FirstWeekOfYear =   0
+         LCID            =   1034
+         SubFormatType   =   1
+      EndProperty
+      DataMember      =   "LecturaEnProgreso"
+      DataSource      =   "DataEnvironment1"
+      Height          =   375
+      Left            =   7200
+      TabIndex        =   10
+      Text            =   "0"
+      Top             =   1800
+      Visible         =   0   'False
+      Width           =   495
+   End
+   Begin VB.TextBox TxtPorcentaje 
+      DataField       =   "Porcentaje"
+      BeginProperty DataFormat 
+         Type            =   1
+         Format          =   "0"
+         HaveTrueFalseNull=   0
+         FirstDayOfWeek  =   0
+         FirstWeekOfYear =   0
+         LCID            =   1034
+         SubFormatType   =   1
+      EndProperty
+      DataMember      =   "LecturaEnProgreso"
+      DataSource      =   "DataEnvironment1"
+      Height          =   375
+      Left            =   7200
+      TabIndex        =   9
+      Text            =   "0"
+      Top             =   1200
+      Visible         =   0   'False
+      Width           =   495
+   End
+   Begin VB.TextBox TxtSelLength 
+      DataField       =   "SelLength"
+      BeginProperty DataFormat 
+         Type            =   1
+         Format          =   "0"
+         HaveTrueFalseNull=   0
+         FirstDayOfWeek  =   0
+         FirstWeekOfYear =   0
+         LCID            =   1034
+         SubFormatType   =   1
+      EndProperty
+      DataMember      =   "LecturaEnProgreso"
+      DataSource      =   "DataEnvironment1"
+      Height          =   375
+      Left            =   7200
+      TabIndex        =   8
+      Text            =   "0"
+      Top             =   600
+      Visible         =   0   'False
+      Width           =   495
+   End
+   Begin VB.TextBox TxtUltomosDatosLeidos 
+      DataField       =   "UltomosDatosLeidos"
+      DataMember      =   "LecturaEnProgreso"
+      DataSource      =   "DataEnvironment1"
+      Height          =   375
+      Left            =   7200
+      TabIndex        =   7
+      Text            =   "0"
+      Top             =   120
+      Visible         =   0   'False
+      Width           =   495
+   End
    Begin VB.Timer tSegundosDeLectura 
       Enabled         =   0   'False
       Interval        =   1000
@@ -69,6 +273,7 @@ Begin VB.UserControl Libro
       _ExtentX        =   1296
       _ExtentY        =   873
       _Version        =   393217
+      Enabled         =   -1  'True
       TextRTF         =   $"Libro.ctx":0000
    End
    Begin RichTextLib.RichTextBox RtxtLibro 
@@ -80,7 +285,6 @@ Begin VB.UserControl Libro
       _ExtentX        =   10398
       _ExtentY        =   6588
       _Version        =   393217
-      Enabled         =   -1  'True
       ScrollBars      =   3
       TextRTF         =   $"Libro.ctx":0082
    End
@@ -96,6 +300,12 @@ Begin VB.UserControl Libro
       Begin VB.Menu MnuPegar 
          Caption         =   "Pegar"
       End
+      Begin VB.Menu Mnu2 
+         Caption         =   "-"
+      End
+      Begin VB.Menu MnuGuardarPropiedadesDelLibro 
+         Caption         =   "Guardar propiedades del Libro"
+      End
    End
 End
 Attribute VB_Name = "Libro"
@@ -104,26 +314,34 @@ Attribute VB_Creatable = True
 Attribute VB_PredeclaredId = False
 Attribute VB_Exposed = False
 Option Explicit
-Private vSegundero As Integer 'Para el temporizador.
-Private vDepurandoTexto_ultimo_texto As Variant 'Variable para uso de la propiedad prDepurandoTextoUltimoTexto
-Public Event ClickLeerultimosDatos()
-Public Event ClickContinuar(Habilitar As Boolean)
 Private vBackUpGuardado As Boolean
 'Permite obtener un si o un no booleano por medio del parametro del evento en fTextoSeleccionado. Para poder continuar con las acciones.
+
+'Las variables de las siguientes lineas se pueden habilitar en caso de modificar sus respectivas propiedades.
+'Private vSegundero As Integer 'Para el temporizador.
+'Private vDepurandoTexto_ultimo_texto As Variant 'Variable para uso de la propiedad prDepurandoTextoUltimoTexto
+'Private vUltomosDatosLeidos As Variant
+'Private vLenDeLectura As Double
+'Private vHorasLeyendo As Integer
+'Private vLen_incremental_del_texto As Double
+'Private vPorcentaje As Double
+'Private vMaximoDelValorReal As Double
+'Private vMinutosLeyendo As Integer
+
+Public Event ClickLeerultimosDatos()
+Public Event ClickContinuar(Habilitar As Boolean)
 Public Event EveSePuedeContinuar(Se_puede_continuar As Boolean) '
 Public Event EveDeshabilitarControles(Habilitados As Boolean)
 Public Event ClickIniciarLectura(Datos As Variant)
-Private vUltomosDatosLeidos As Variant
-Private vLenDeLectura As Double
-Private vHorasLeyendo As Integer
-Private vLen_incremental_del_texto As Double
-Private vPorcentaje As Double
-Private vMaximoDelValorReal As Double
-Private vMinutosLeyendo As Integer
 Public Event EveStatusDeLectura(Estatus As Variant)
 Private vSegundos_de_lectura As Double
 Public Event EveSegundosLeyendo(Segundos_leyendo As Double)
 Public Event TiempoDeLectura(Horas As Integer, Minutos As Integer, Segundos As Integer)
+
+Public Sub GuardarPropiedades()
+    DataEnvironment1.rsLecturaEnProgreso.Update
+End Sub
+
 
 Public Property Get prHabilitarPegar() As Boolean
     prHabilitarAnexar = cmdPegar.Enabled
@@ -167,8 +385,9 @@ Public Property Let SelStart(Nuevo As Integer)
 End Property
 
 Public Property Get PrSelLength() As Long
+'Es de solo lectura
     PrSelLength = RtxtLibro.SelLength
-
+    TxtSelLength.Text = RtxtLibro.SelLength
 End Property
 Public Property Let LelLength(Nuevo As Long)
     RtxtLibro.SelLength = Nuevo
@@ -215,7 +434,7 @@ Private Property Get prDepurandoTextoUltimoTexto() As Variant 'Guarda el ultimo 
 'Guarda la ultima palabra del texto seleccionado sea o no completa.
 On Error GoTo AccionesCorrectivas
 
-prDepurandoTextoUltimoTexto = vDepurandoTexto_ultimo_texto
+prDepurandoTextoUltimoTexto = TxtDepurandoTextoUltimoTexto.Text 'vDepurandoTexto_ultimo_texto
 Exit Property
 AccionesCorrectivas:
 MsgBox "Tengo problemas con prDepurandoTextoUltimoTextoprDepurandoTextoUltimoTexto"
@@ -223,7 +442,8 @@ End Property
 Private Property Let prDepurandoTextoUltimoTexto(vNuevosDatos As Variant)  'Guarda el ultimo id de la matriz local mDepuracion, en la funcion fDepurandoTexto, para luego concatenarlo como parte de la respuesta de la siguiente llamada de la funcion.
 On Error GoTo AccionesCorrectivas
 
-vDepurandoTexto_ultimo_texto = vNuevosDatos
+'vDepurandoTexto_ultimo_texto = vNuevosDatos
+TxtDepurandoTextoUltimoTexto.Text = vNuevosDatos
 Exit Property
 AccionesCorrectivas:
 MsgBox "Tengo problemas con prDepurandoTextoUltimoTextoprDepurandoTextoUltimoTexto"
@@ -352,17 +572,18 @@ End Sub
 
 Public Property Get prLenDeLectura() As Double 'La cantidad de texto a leer.
     On Error GoTo AccionesCorrectivas
-    
-    prLenDeLectura = vLenDeLectura
+    prLenDeLectura = TxtLenDeLectura.Text 'vLenDeLectura
     Exit Property
 AccionesCorrectivas:
     MsgBox "Tengo problemas con prLenDeLecturaprLenDeLectura"
 End Property
 Public Property Let prLenDeLectura(vNuevosDatos As Double)  'La cantidad de texto a leer.
     On Error GoTo AccionesCorrectivas
-    vLenDeLectura = vNuevosDatos
+    TxtLenDeLectura.Text = vNuevosDatos
+    'vLenDeLectura = vNuevosDatos
     'Habilitarlo luego
     'fProgressBarMax ProgressBar1, prLenDeLectura  'Se carga el Max del ProgressBar mediante un procedimiento que verifica una serie de valores para evitar errores o que esta propiedad se detenga.
+  
     PropertyChanged "prLenDeLectura"
     Exit Property
 AccionesCorrectivas:
@@ -397,16 +618,15 @@ End Sub
 
 Public Property Get prHorasLeyendo() As Integer 'Cantidad de horas leyendo el libro.
     On Error GoTo AccionesCorrectivas
-    
-    prHorasLeyendo = vHorasLeyendo
+    prHorasLeyendo = TxtHorasLeyendo.Text 'vHorasLeyendo
     Exit Property
 AccionesCorrectivas:
     MsgBox "Tengo problemas con prHorasLeyendoprHorasLeyendo"
 End Property
 Public Property Let prHorasLeyendo(vNuevosDatos As Integer)  'Cantidad de horas leyendo el libro.
     On Error GoTo AccionesCorrectivas
-    
-    vHorasLeyendo = vNuevosDatos
+    TxtHorasLeyendo.Text = vNuevosDatos
+    'vHorasLeyendo = vNuevosDatos
     PropertyChanged "prHorasLeyendo"
     Exit Property
 AccionesCorrectivas:
@@ -542,18 +762,16 @@ AccionesCorrectivas:
 End Function
 
 Public Property Get prLenIncrementalDelTexto() As Double 'Se carga con el Len del texto copiado del portapapeles con el Function fGetTextoDelPortapapeles.
-    
     On Error GoTo AccionesCorrectivas
-    
-    prLenIncrementalDelTexto = vLen_incremental_del_texto
+    prLenIncrementalDelTexto = TxtLenIncrementalDelTexto.Text 'vLen_incremental_del_texto
     Exit Property
 AccionesCorrectivas:
     MsgBox "Tengo problemas con prLenIncrementalDelTextoprLenIncrementalDelTexto"
 End Property
 Public Property Let prLenIncrementalDelTexto(vNuevosDatos As Double)  'Se carga con el Len del texto copiado del portapapeles con el Function fGetTextoDelPortapapeles.
     On Error GoTo AccionesCorrectivas
-    
-    vLen_incremental_del_texto = vNuevosDatos
+    TxtLenIncrementalDelTexto.Text = vNuevosDatos
+    'vLen_incremental_del_texto = vNuevosDatos
     Exit Property
 AccionesCorrectivas:
     MsgBox "Tengo problemas con prLenIncrementalDelTextoprLenIncrementalDelTexto"
@@ -582,14 +800,15 @@ End Function
 
 Public Property Get prMaximoDelValorReal() As Double 'Valor maximo del numero que desea trabajar con porcentajes. Por ejemplo el Maximo de 38 es 38...
     On Error GoTo AccionesCorrectivas
-    prMaximoDelValorReal = vMaximoDelValorReal
+    prMaximoDelValorReal = TxtMaximoDelValorReal.Text 'vMaximoDelValorReal
     Exit Property
 AccionesCorrectivas:
     MsgBox "Tengo problemas con prMaximoDelValorReal"
 End Property
 Public Property Let prMaximoDelValorReal(vNuevosDatos As Double)  'Valor maximo del numero que desea trabajar con porcentajes. Por ejemplo el Maximo de 38 es 38...
     On Error GoTo AccionesCorrectivas
-    vMaximoDelValorReal = vNuevosDatos
+    TxtMaximoDelValorReal.Text = vNuevosDatos
+    'vMaximoDelValorReal = vNuevosDatos
     Exit Property
 AccionesCorrectivas:
     MsgBox "Tengo problemas con prMaximoDelValorReal"
@@ -622,15 +841,15 @@ End Function
 
 Public Property Get prMinutosLeyendo() As Integer 'Cantidad de minutos leyendo.
     On Error GoTo AccionesCorrectivas
-    
-    prMinutosLeyendo = vMinutosLeyendo
+    prMinutosLeyendo = TxtMinutosLeyendo.Text 'vMinutosLeyendo
     Exit Property
 AccionesCorrectivas:
     MsgBox "Tengo problemas con prMinutosLeyendoprMinutosLeyendo"
 End Property
 Public Property Let prMinutosLeyendo(vNuevosDatos As Integer)  'Cantidad de minutos leyendo.
     On Error GoTo AccionesCorrectivas
-    vMinutosLeyendo = Val(Left(CStr(vNuevosDatos), 2)) 'Hace que solo se muestren dos digitos.
+    TxtMinutosLeyendo.Text = Val(Left(CStr(vNuevosDatos), 2)) 'Hace que solo se muestren dos digitos.
+    'vMinutosLeyendo = Val(Left(CStr(vNuevosDatos), 2)) 'Hace que solo se muestren dos digitos.
     PropertyChanged "prMinutosLeyendo"
     Exit Property
 AccionesCorrectivas:
@@ -638,18 +857,16 @@ AccionesCorrectivas:
 End Property
 
 Public Property Get prUltomosDatosLeidos() As Variant 'Guarda los ultimos datos que se leyeron.
-
     On Error GoTo N
-    
-    prUltomosDatosLeidos = vUltomosDatosLeidos
+    prUltomosDatosLeidos = TxtUltomosDatosLeidos.Text 'vUltomosDatosLeidos
     Exit Property
 N:
     MsgBox "Tengo problemas con prUltomosDatosLeidos"
 End Property
 Public Property Let prUltomosDatosLeidos(vNuevosDatos As Variant)  'Guarda los ultimos datos que se leyeron.
     On Error GoTo N
-    
-    vUltomosDatosLeidos = vNuevosDatos
+    TxtUltomosDatosLeidos.Text = vNuevosDatos
+    'vUltomosDatosLeidos = vNuevosDatos
     PropertyChanged "prUltomosDatosLeidos"
     Exit Property
 N:
@@ -658,16 +875,15 @@ End Property
 
 Public Property Get prPorcentaje() As Double 'Se guarda el porcentaje calculado por si necesita llamarse de nuevo en otra parte del codigo.
     On Error GoTo AccionesCorrectivas
-    
-    prPorcentaje = vPorcentaje
+    prPorcentaje = TxtPorcentaje.Text 'vPorcentaje
     Exit Property
 AccionesCorrectivas:
     MsgBox "Tengo problemas con prPorcentaje"
 End Property
 Public Property Let prPorcentaje(vNuevosDatos As Double)  'Se guarda el porcentaje calculado por si necesita llamarse de nuevo en otra parte del codigo.
     On Error GoTo AccionesCorrectivas
-    
-    vPorcentaje = vNuevosDatos
+    TxtPorcentaje.Text = vNuevosDatos
+    'vPorcentaje = vNuevosDatos
     Exit Property
 AccionesCorrectivas:
     MsgBox "Tengo problemas con prPorcentaje"
@@ -704,8 +920,11 @@ End Sub
 
 Private Function fGuardarLecturaEnProgreso(ByRef RichTextBox_nombre As Object, ByRef Nombre_del_libro As Variant) 'Guarda la lectura en progreso.
     On Error GoTo AccionesCorrectivas
+    TxtNombreDelLibro.Text = Nombre_del_libro
     RichTextBox_nombre.SaveFile App.Path & "\" & Nombre_del_libro & ".Lectura"
     fGuardarLecturaEnProgreso = App.Path & "\" & Nombre_del_libro & ".Lectura"
+    'No se agregan registros porque solo existe un registro para este programa por el momento.
+    DataEnvironment1.rsLecturaEnProgreso.Update
     Exit Function
 AccionesCorrectivas:
     MsgBox "Tengo problemas con GuardarLecturaEnProgreso" & RTC & Err.Description
@@ -726,16 +945,15 @@ End Sub
 
 Public Property Get prSegundosDeLectura() As Double 'Guarda la cantidad de tiempo de cada fraccion de lectura.
     On Error GoTo N
-    
-    prSegundosDeLectura = vSegundos_de_lectura
+    prSegundosDeLectura = txtSegundosLeyendo.Text 'vSegundos_de_lectura
     Exit Property
 N:
     MsgBox "Tengo problemas con prSegundosDeLectura"
 End Property
 Public Property Let prSegundosDeLectura(vNuevosDatos As Double)  'Guarda la cantidad de tiempo de cada fraccion de lectura.
     On Error GoTo N
-    
-    vSegundos_de_lectura = vNuevosDatos
+    txtSegundosLeyendo.Text = vNuevosDatos
+    'vSegundos_de_lectura = vNuevosDatos
     PropertyChanged "prSegundosDeLectura"
     Exit Property
 N:
@@ -785,6 +1003,10 @@ Private Sub mnuAnexarTexto_Click()
     cmdAnexar_Click
 End Sub
 
+Private Sub MnuGuardarPropiedadesDelLibro_Click()
+    GuardarPropiedades
+End Sub
+
 Private Sub MnuPegar_Click()
     cmdPegar_Click
 End Sub
@@ -801,11 +1023,11 @@ Private Sub tSegundosDeLectura_Timer()
     'lbTiempoTranscurido = prSegundosDeLectura
     RaiseEvent EveSegundosLeyendo(prSegundosDeLectura)
     
-    vSegundero = vSegundero + 1
+    'vSegundero = vSegundero + 1
+    prSegundosDeLectura = prSegundosDeLectura + 1
+    If prSegundosDeLectura = 60 Then
     
-    If vSegundero = 60 Then
-    
-        vSegundero = 0
+        prSegundosDeLectura = 0
         prMinutosLeyendo = prMinutosLeyendo + 1
         
         If prMinutosLeyendo >= 60 Then
@@ -813,7 +1035,7 @@ Private Sub tSegundosDeLectura_Timer()
             prMinutosLeyendo = 0 'Despues de 60 minutos, los minutos vuelven a cero.
         End If
     End If
-RaiseEvent TiempoDeLectura(prHorasLeyendo, prMinutosLeyendo, vSegundero)
+RaiseEvent TiempoDeLectura(prHorasLeyendo, prMinutosLeyendo, prSegundosDeLectura)
 End Sub
 
 Private Sub UserControl_MouseUp(Button As Integer, Shift As Integer, X As Single, Y As Single)
