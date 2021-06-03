@@ -1,17 +1,20 @@
 VERSION 5.00
 Begin VB.Form FrmNuevoLectura 
+   BorderStyle     =   1  'Fixed Single
    Caption         =   "Nuevo lectura"
    ClientHeight    =   5625
-   ClientLeft      =   1110
-   ClientTop       =   2010
-   ClientWidth     =   9120
+   ClientLeft      =   720
+   ClientTop       =   1875
+   ClientWidth     =   10320
+   Icon            =   "Form1.frx":0000
    LinkTopic       =   "Form1"
+   MaxButton       =   0   'False
    ScaleHeight     =   5625
-   ScaleWidth      =   9120
+   ScaleWidth      =   10320
    Begin VB.CommandButton CMDEnd 
       Height          =   495
       Left            =   8400
-      Picture         =   "Form1.frx":0000
+      Picture         =   "Form1.frx":324A
       Style           =   1  'Graphical
       TabIndex        =   5
       ToolTipText     =   "Cerrar este formulario"
@@ -43,16 +46,16 @@ Begin VB.Form FrmNuevoLectura
       Value           =   -1  'True
       Width           =   1335
    End
-   Begin Rnn.Libro Libro1 
+   Begin NuevoLectura.Libro Libro1 
       Height          =   4695
       Left            =   3000
       TabIndex        =   1
       Top             =   0
-      Width           =   6015
-      _extentx        =   10610
-      _extenty        =   7646
+      Width           =   7335
+      _extentx        =   12938
+      _extenty        =   8281
    End
-   Begin Rnn.Hablar Hablar1 
+   Begin NuevoLectura.Hablar Hablar1 
       Height          =   4575
       Left            =   0
       TabIndex        =   0
@@ -101,6 +104,10 @@ Private conteo As Integer
 Private Sub CMDEnd_Click()
     Unload Me
 End Sub
+
+
+
+
 
 
 
@@ -182,14 +189,15 @@ Private Sub OptContinuar_Click()
     Hablar1.Continuar
     Libro1.prHabilitarAnexar = OptParar.Value
     Libro1.prHabilitarPegar = OptParar.Value
-  
+    'Libro1.PrHabilitarLeer = OptParar.Value
 End Sub
 
 Private Sub OptParar_Click()
     Hablar1.Parar
     Libro1.prHabilitarAnexar = OptParar.Value
     Libro1.prHabilitarPegar = OptParar.Value
-  
+    Libro1.PrHabilitarLeer = OptParar.Value
+    Libro1.PrHabilitarUltimosDatos = OptParar.Value
 End Sub
 
 Private Sub OptPausa_Click()
@@ -197,4 +205,5 @@ Private Sub OptPausa_Click()
     Libro1.prHabilitarAnexar = OptPausa.Value
     Libro1.prHabilitarPegar = OptParar.Value
     
+    'Libro1.PrHabilitarLeer = OptParar.Value
 End Sub

@@ -30,11 +30,12 @@ C:\WINDOWS\system32\MSCOMCTL.OCX=
 C:\Documents and Settings\Administrador\Mis documentos\Toda la base de datos\Recursos\Recursos.dll=
 
 [Package|Paquete de instalación estándar 1|Files Added]
+C:\Documents and Settings\Administrador\Escritorio\Nuevo Lectura\DbLectura2021.mdb=
 
 [Package|Paquete de instalación estándar 1|Files Removed]
+c:\documents and settings\administrador\escritorio\nuevo lectura\dblectura2021.mdb=
 
 [Package|Paquete de instalación estándar 1|Files In Project]
-C:\Documents and Settings\Administrador\Escritorio\Nuevo Lectura\Rnn.exe=Yes
 C:\WINDOWS\system32\msvbvm60.dll=Yes
 C:\Archivos de programa\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\OLEAUT32.DLL=Yes
 C:\Archivos de programa\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\OLEPRO32.DLL=Yes
@@ -66,6 +67,10 @@ C:\Archivos de programa\Microsoft Visual Studio\VB98\Wizards\PDWizard\SETUP.EXE=
 C:\Archivos de programa\Microsoft Visual Studio\VB98\Wizards\PDWizard\SETUP1.EXE=Yes
 C:\WINDOWS\system32\VB6STKIT.DLL=Yes
 C:\Archivos de programa\Microsoft Visual Studio\VB98\Wizards\PDWizard\ST6UNST.EXE=Yes
+C:\Documents and Settings\Administrador\Escritorio\Nuevo Lectura\NuevoLectura.exe=Yes
+C:\WINDOWS\system32\MSHFLXGD.OCX=Yes
+C:\WINDOWS\system32\MSHFGES.DLL=Yes
+C:\Documents and Settings\Administrador\Escritorio\Nuevo Lectura\DbLectura2021.mdb=No
 
 [Package|Paquete de instalación estándar 1|Configure Registry Files]
 Applicable=No
@@ -106,17 +111,23 @@ C:\Archivos de programa\Microsoft Visual Studio\VB98\Wizards\PDWizard\SETUP.EXE=
 C:\Archivos de programa\Microsoft Visual Studio\VB98\Wizards\PDWizard\SETUP1.EXE=$(WinPath)
 C:\WINDOWS\system32\VB6STKIT.DLL=$(WinSysPathSysFile)
 C:\Archivos de programa\Microsoft Visual Studio\VB98\Wizards\PDWizard\ST6UNST.EXE=$(WinPath)
+C:\Documents and Settings\Administrador\Escritorio\Nuevo Lectura\NuevoLectura.exe=$(AppPath)
+C:\WINDOWS\system32\MSHFLXGD.OCX=$(WinSysPath)
+C:\WINDOWS\system32\MSHFGES.DLL=$(WinSysPath)
+C:\Documents and Settings\Administrador\Escritorio\Nuevo Lectura\DbLectura2021.mdb=$(AppPath)
 
 [Package|Paquete de instalación estándar 1|Configure Shared Files]
 Applicable=Yes
 C:\Documents and Settings\Administrador\Escritorio\Nuevo Lectura\Rnn.exe=No
 C:\Documents and Settings\Administrador\Mis documentos\Toda la base de datos\Recursos\Recursos.dll=No
 C:\Archivos de programa\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\MDAC_TYP.EXE=Yes
+C:\Documents and Settings\Administrador\Escritorio\Nuevo Lectura\NuevoLectura.exe=No
+C:\Documents and Settings\Administrador\Escritorio\Nuevo Lectura\DbLectura2021.mdb=No
 
 [Package|Paquete de instalación estándar 1|Distribution]
 Type=single
 Size=
-Title=Rnn
+Title=NuevoLecturaInstaler
 
 [Package|Paquete de instalación estándar 1|IconGroups]
 Group0=Rnn
@@ -124,8 +135,8 @@ PrivateGroup0=-1
 Parent0=$(Programs)
 
 [Package|Paquete de instalación estándar 1|Rnn]
-Icon1=Rnn.exe
-Title1=Rnn
+Icon1=NuevoLectura.exe
+Title1=NuevoLecturaInstaler
 StartIn1=$(AppPath)
 Key1=Icon1
 
@@ -135,6 +146,6 @@ ProjectFolder=C:\Documents and Settings\Administrador\Escritorio\Nuevo Lectura
 ServerSideCab=
 File1=C:\Documents and Settings\Administrador\Escritorio\Nuevo Lectura\Paquete\setup.exe
 File2=C:\Documents and Settings\Administrador\Escritorio\Nuevo Lectura\Paquete\Setup.Lst
-File3=C:\Documents and Settings\Administrador\Escritorio\Nuevo Lectura\Paquete\Rnn.CAB
+File3=C:\Documents and Settings\Administrador\Escritorio\Nuevo Lectura\Paquete\NuevoLectura.CAB
 Handler1=PDWizard.FolderDplySubWiz
 Handler2=PDWizard.WebPostDplySubWiz

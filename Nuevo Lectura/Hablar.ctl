@@ -26,7 +26,10 @@ Begin VB.UserControl Hablar
       _ExtentX        =   4895
       _ExtentY        =   1191
       _Version        =   393216
+      Min             =   100
       Max             =   65535
+      SelStart        =   100
+      Value           =   100
    End
    Begin MSComctlLib.Slider SliderVelocidad 
       Height          =   555
@@ -88,6 +91,17 @@ Option Explicit
 
 Public Event EveAudioStart()
 Public Event EveAudioStop()
+Public Event EveParadaDefinitiva()
+
+Private vParadaDefinitiva As Boolean
+
+Public Property Get PrParadaDefinitiva() As Boolean
+    PrParadaDefinitiva = vParadaDefinitiva
+End Property
+
+Public Property Let PrParadaDefinitiva(Nuevo As Boolean)
+    vParadaDefinitiva = Nuevo
+End Property
 
 
 Private Sub DirectSS1_AudioStart(ByVal hi As Long, ByVal lo As Long)
@@ -95,7 +109,11 @@ Private Sub DirectSS1_AudioStart(ByVal hi As Long, ByVal lo As Long)
 End Sub
 
 Private Sub DirectSS1_AudioStop(ByVal hi As Long, ByVal lo As Long)
-    RaiseEvent EveAudioStop
+    If PrParadaDefinitiva = False Then
+        RaiseEvent EveAudioStop
+    Else
+        RaiseEvent EveParadaDefinitiva
+    End If
 End Sub
 
 Public Sub Continuar()
@@ -103,10 +121,12 @@ Public Sub Continuar()
 End Sub
 
 Public Sub Parar()
+    vParadaDefinitiva = True
     DirectSS1.AudioReset
 End Sub
 
 Public Sub Pausa()
+    vParadaDefinitiva = False
     DirectSS1.AudioPause
 End Sub
 
@@ -126,6 +146,7 @@ End Sub
 
 Public Sub Leer(Texto As Variant)
 'El texto debe ser menor a 8 mil letras; los espacios valen como letras.
+    vParadaDefinitiva = False
     DirectSS1.Speak Texto
 End Sub
 

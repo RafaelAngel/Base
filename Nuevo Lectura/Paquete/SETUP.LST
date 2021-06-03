@@ -1,7 +1,7 @@
 [Bootstrap]
 SetupTitle=Instalar
 SetupText=Copiando archivos, espere.
-CabFile=Rnn.CAB
+CabFile=NuevoLectura.CAB
 Spawn=Setup1.exe
 Uninstal=st6unst.exe
 TmpDir=msftqws.pdw
@@ -23,38 +23,40 @@ PrivateGroup0=-1
 Parent0=$(Programs)
 
 [Rnn]
-Icon1="Rnn.exe"
-Title1=Rnn
+Icon1="NuevoLectura.exe"
+Title1=NuevoLecturaInstaler
 StartIn1=$(AppPath)
 
 [Setup]
-Title=Rnn
-DefaultDir=$(ProgramFiles)\Rnn
-AppExe=Rnn.exe
-AppToUninstall=Rnn.exe
+Title=NuevoLecturaInstaler
+DefaultDir=$(ProgramFiles)\NuevoLectura
+AppExe=NuevoLectura.exe
+AppToUninstall=NuevoLectura.exe
 
 [Setup1 Files]
 File1=@MDAC_TYP.EXE,$(AppPath),,$(Shared),8/7/98 12:00:00 AM,6477888,4.72.3110.0
-File2=@STDFTES.DLL,$(WinSysPath),,$(Shared),7/31/98 12:00:00 AM,6656,6.0.81.63
-File3=@MSSTDFMT.DLL,$(WinSysPath),$(DLLSelfRegister),$(Shared),2/23/04 12:00:00 AM,119808,6.1.97.82
-File4=@MSBIND.DLL,$(WinSysPath),$(DLLSelfRegister),$(Shared),2/23/04 12:00:00 AM,78848,6.1.97.82
-File5=@CONNDES.DLL,$(WinSysPath),,$(Shared),7/28/98 12:00:00 AM,30208,6.0.81.63
-File6=@RDO20ES.DLL,$(WinSysPath),,$(Shared),7/28/98 12:00:00 AM,66048,6.0.81.63
-File7=@RDOCURS.DLL,$(WinSysPath),,$(Shared),4/28/08 10:58:50 PM,151552,6.0.88.4
-File8=@MSRDO20.DLL,$(WinSysPath),$(DLLSelfRegister),$(Shared),2/23/04 12:00:00 AM,397824,6.1.97.82
-File9=@MSCDRUN.DLL,$(CommonFiles)\Designer,$(DLLSelfRegister),$(Shared),3/14/00 12:00:00 AM,49152,6.0.88.4
-File10=@MSDERUN.DLL,$(CommonFiles)\designer,$(DLLSelfRegister),$(Shared),7/15/00 12:00:00 AM,136192,6.0.88.4
-File11=@RCHTXES.DLL,$(WinSysPath),,$(Shared),7/28/98 12:00:00 AM,34816,6.0.81.63
-File12=@RICHED32.DLL,$(WinSysPathSysFile),,,5/8/98 12:00:00 AM,174352,4.0.993.4
-File13=@RICHTX32.OCX,$(WinSysPath),$(DLLSelfRegister),$(Shared),3/9/04 12:00:00 AM,212240,6.1.97.82
-File14=@MSCAL.OCX,$(WinSysPath),$(DLLSelfRegisterEx),$(Shared),5/7/98 12:00:00 AM,89600,8.0.0.5007
-File15=@CMDLGES.DLL,$(WinSysPath),,$(Shared),7/28/98 12:00:00 AM,33280,6.0.81.63
-File16=@COMDLG32.OCX,$(WinSysPath),$(DLLSelfRegister),$(Shared),3/9/04 12:00:00 AM,152848,6.1.97.82
-File17=@MSCOMCTL.OCX,$(WinSysPath),$(DLLSelfRegister),$(Shared),3/9/04 12:00:00 AM,1081616,6.1.97.82
-File18=@dao360.dll,$(WinSysPath),$(DLLSelfRegister),$(Shared),1/19/08 4:34:50 PM,554008,3.60.9512.0
-File19=@Recursos.dll,$(AppPath),$(DLLSelfRegister),,9/9/15 9:19:48 PM,614400,1.0.0.77
-File20=@Xvoice.dll,$(WinSysPath),$(DLLSelfRegister),$(Shared),1/12/99 3:19:12 PM,195584,4.0.4.2512
-File21=@Rnn.exe,$(AppPath),,,5/19/21 10:17:19 AM,208896,1.0.0.0
+File2=@MSHFGES.DLL,$(WinSysPath),,$(Shared),7/23/98 12:00:00 AM,50176,6.0.30.5
+File3=@STDFTES.DLL,$(WinSysPath),,$(Shared),7/31/98 12:00:00 AM,6656,6.0.81.63
+File4=@MSSTDFMT.DLL,$(WinSysPath),$(DLLSelfRegister),$(Shared),2/23/04 12:00:00 AM,119808,6.1.97.82
+File5=@MSHFLXGD.OCX,$(WinSysPath),$(DLLSelfRegister),$(Shared),3/9/04 12:00:00 AM,440352,6.0.88.4
+File6=@MSBIND.DLL,$(WinSysPath),$(DLLSelfRegister),$(Shared),2/23/04 12:00:00 AM,78848,6.1.97.82
+File7=@CONNDES.DLL,$(WinSysPath),,$(Shared),7/28/98 12:00:00 AM,30208,6.0.81.63
+File8=@RDO20ES.DLL,$(WinSysPath),,$(Shared),7/28/98 12:00:00 AM,66048,6.0.81.63
+File9=@RDOCURS.DLL,$(WinSysPath),,$(Shared),4/28/08 10:58:50 PM,151552,6.0.88.4
+File10=@MSRDO20.DLL,$(WinSysPath),$(DLLSelfRegister),$(Shared),2/23/04 12:00:00 AM,397824,6.1.97.82
+File11=@MSCDRUN.DLL,$(CommonFiles)\Designer,$(DLLSelfRegister),$(Shared),3/14/00 12:00:00 AM,49152,6.0.88.4
+File12=@MSDERUN.DLL,$(CommonFiles)\designer,$(DLLSelfRegister),$(Shared),7/15/00 12:00:00 AM,136192,6.0.88.4
+File13=@RCHTXES.DLL,$(WinSysPath),,$(Shared),7/28/98 12:00:00 AM,34816,6.0.81.63
+File14=@RICHED32.DLL,$(WinSysPathSysFile),,,5/8/98 12:00:00 AM,174352,4.0.993.4
+File15=@RICHTX32.OCX,$(WinSysPath),$(DLLSelfRegister),$(Shared),3/9/04 12:00:00 AM,212240,6.1.97.82
+File16=@MSCAL.OCX,$(WinSysPath),$(DLLSelfRegisterEx),$(Shared),5/7/98 12:00:00 AM,89600,8.0.0.5007
+File17=@CMDLGES.DLL,$(WinSysPath),,$(Shared),7/28/98 12:00:00 AM,33280,6.0.81.63
+File18=@COMDLG32.OCX,$(WinSysPath),$(DLLSelfRegister),$(Shared),3/9/04 12:00:00 AM,152848,6.1.97.82
+File19=@MSCOMCTL.OCX,$(WinSysPath),$(DLLSelfRegister),$(Shared),3/9/04 12:00:00 AM,1081616,6.1.97.82
+File20=@dao360.dll,$(WinSysPath),$(DLLSelfRegister),$(Shared),1/19/08 4:34:50 PM,554008,3.60.9512.0
+File21=@Recursos.dll,$(AppPath),$(DLLSelfRegister),,9/9/15 9:19:48 PM,614400,1.0.0.77
+File22=@Xvoice.dll,$(WinSysPath),$(DLLSelfRegister),$(Shared),1/12/99 3:19:12 PM,195584,4.0.4.2512
+File23=@NuevoLectura.exe,$(AppPath),,,6/3/21 6:49:44 AM,262144,1.0.0.1
 
 ; Puede eliminar las siguientes líneas para obtener espacio adicional 
 ; con el fin de personalizar este archivo en un disco de instalación completa.

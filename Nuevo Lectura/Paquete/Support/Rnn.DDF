@@ -7,12 +7,12 @@
 .Set CompressionType=MSZIP
 .Set CompressionLevel=7
 .Set CompressionMemory=21
-.Set CabinetNameTemplate="Rnn.CAB"
+.Set CabinetNameTemplate="NuevoLectura.CAB"
 "Setup.Lst"
 "setup.exe"
 .Set Cabinet=on
 .Set Compress=on
-"Rnn.exe"
+"NuevoLectura.exe"
 "msvbvm60.dll"
 "OLEAUT32.DLL"
 "OLEPRO32.DLL"
@@ -39,6 +39,8 @@
 "RDO20ES.DLL"
 "CONNDES.DLL"
 "MSBIND.DLL"
+"MSHFLXGD.OCX"
+"MSHFGES.DLL"
 "MDAC_TYP.EXE"
 "SETUP1.EXE"
 "VB6STKIT.DLL"

@@ -1,12 +1,21 @@
 VERSION 5.00
 Object = "{3B7C8863-D78F-101B-B9B5-04021C009402}#1.2#0"; "RICHTX32.OCX"
 Begin VB.UserControl Libro 
-   ClientHeight    =   4665
+   ClientHeight    =   5400
    ClientLeft      =   0
    ClientTop       =   0
-   ClientWidth     =   9660
-   ScaleHeight     =   4665
-   ScaleWidth      =   9660
+   ClientWidth     =   7395
+   ScaleHeight     =   5400
+   ScaleWidth      =   7395
+   Begin VB.CommandButton CmdUltimoAntesDeCerrar 
+      Caption         =   "Recordar"
+      Height          =   375
+      Left            =   0
+      TabIndex        =   18
+      ToolTipText     =   "Ultimo texto antes de cerrar el programa"
+      Top             =   3840
+      Width           =   1095
+   End
    Begin VB.TextBox txtSegundosLeyendo 
       DataField       =   "SegundosLeyendo"
       BeginProperty DataFormat 
@@ -21,7 +30,7 @@ Begin VB.UserControl Libro
       DataMember      =   "LecturaEnProgreso"
       DataSource      =   "DataEnvironment1"
       Height          =   405
-      Left            =   6240
+      Left            =   7680
       TabIndex        =   17
       Text            =   "0"
       Top             =   3000
@@ -33,7 +42,7 @@ Begin VB.UserControl Libro
       DataMember      =   "LecturaEnProgreso"
       DataSource      =   "DataEnvironment1"
       Height          =   375
-      Left            =   6240
+      Left            =   7680
       TabIndex        =   16
       Text            =   "0"
       Top             =   2400
@@ -45,7 +54,7 @@ Begin VB.UserControl Libro
       DataMember      =   "LecturaEnProgreso"
       DataSource      =   "DataEnvironment1"
       Height          =   375
-      Left            =   6240
+      Left            =   7680
       TabIndex        =   15
       Text            =   "0"
       Top             =   1800
@@ -66,7 +75,7 @@ Begin VB.UserControl Libro
       DataMember      =   "LecturaEnProgreso"
       DataSource      =   "DataEnvironment1"
       Height          =   375
-      Left            =   6240
+      Left            =   7680
       TabIndex        =   14
       Text            =   "0"
       Top             =   1200
@@ -87,7 +96,7 @@ Begin VB.UserControl Libro
       DataMember      =   "LecturaEnProgreso"
       DataSource      =   "DataEnvironment1"
       Height          =   375
-      Left            =   6240
+      Left            =   7680
       TabIndex        =   13
       Text            =   "0"
       Top             =   600
@@ -108,7 +117,7 @@ Begin VB.UserControl Libro
       DataMember      =   "LecturaEnProgreso"
       DataSource      =   "DataEnvironment1"
       Height          =   375
-      Left            =   6240
+      Left            =   7680
       TabIndex        =   12
       Text            =   "0"
       Top             =   0
@@ -129,7 +138,7 @@ Begin VB.UserControl Libro
       DataMember      =   "LecturaEnProgreso"
       DataSource      =   "DataEnvironment1"
       Height          =   375
-      Left            =   7200
+      Left            =   8040
       TabIndex        =   11
       Text            =   "0"
       Top             =   2400
@@ -150,7 +159,7 @@ Begin VB.UserControl Libro
       DataMember      =   "LecturaEnProgreso"
       DataSource      =   "DataEnvironment1"
       Height          =   375
-      Left            =   7200
+      Left            =   8040
       TabIndex        =   10
       Text            =   "0"
       Top             =   1800
@@ -171,7 +180,7 @@ Begin VB.UserControl Libro
       DataMember      =   "LecturaEnProgreso"
       DataSource      =   "DataEnvironment1"
       Height          =   375
-      Left            =   7200
+      Left            =   8040
       TabIndex        =   9
       Text            =   "0"
       Top             =   1200
@@ -192,7 +201,7 @@ Begin VB.UserControl Libro
       DataMember      =   "LecturaEnProgreso"
       DataSource      =   "DataEnvironment1"
       Height          =   375
-      Left            =   7200
+      Left            =   8040
       TabIndex        =   8
       Text            =   "0"
       Top             =   600
@@ -204,7 +213,7 @@ Begin VB.UserControl Libro
       DataMember      =   "LecturaEnProgreso"
       DataSource      =   "DataEnvironment1"
       Height          =   375
-      Left            =   7200
+      Left            =   8040
       TabIndex        =   7
       Text            =   "0"
       Top             =   120
@@ -220,7 +229,7 @@ Begin VB.UserControl Libro
    Begin VB.CommandButton cmdLimpiar 
       Caption         =   "Limpiar"
       Height          =   375
-      Left            =   4920
+      Left            =   6240
       TabIndex        =   6
       ToolTipText     =   "Limpia el campo de texto"
       Top             =   3840
@@ -229,7 +238,7 @@ Begin VB.UserControl Libro
    Begin VB.CommandButton cmdPegar 
       Caption         =   "Pegar"
       Height          =   375
-      Left            =   3840
+      Left            =   5160
       MousePointer    =   99  'Custom
       TabIndex        =   5
       Top             =   3840
@@ -238,7 +247,7 @@ Begin VB.UserControl Libro
    Begin VB.CommandButton cmdAnexar 
       Caption         =   "Anexar"
       Height          =   375
-      Left            =   2760
+      Left            =   4080
       MousePointer    =   99  'Custom
       TabIndex        =   4
       ToolTipText     =   "Anexar datos del porta papeles."
@@ -248,7 +257,7 @@ Begin VB.UserControl Libro
    Begin VB.CommandButton cmdLeer 
       Caption         =   "Leer"
       Height          =   375
-      Left            =   1560
+      Left            =   2880
       TabIndex        =   3
       ToolTipText     =   "Leer todo el texto del campo de texto:"
       Top             =   3840
@@ -257,7 +266,7 @@ Begin VB.UserControl Libro
    Begin VB.CommandButton cmdLeerUltimosDatos 
       Caption         =   "Ultimos datos"
       Height          =   375
-      Left            =   0
+      Left            =   1320
       TabIndex        =   2
       ToolTipText     =   "Leer los ultimos datos"
       Top             =   3840
@@ -281,8 +290,8 @@ Begin VB.UserControl Libro
       Left            =   0
       TabIndex        =   0
       Top             =   0
-      Width           =   5895
-      _ExtentX        =   10398
+      Width           =   7215
+      _ExtentX        =   12726
       _ExtentY        =   6588
       _Version        =   393217
       ScrollBars      =   3
@@ -339,9 +348,57 @@ Public Event EveSegundosLeyendo(Segundos_leyendo As Double)
 Public Event TiempoDeLectura(Horas As Integer, Minutos As Integer, Segundos As Integer)
 
 Public Sub GuardarPropiedades()
-    DataEnvironment1.rsLecturaEnProgreso.Update
+    'DataEnvironment1.rsLecturaEnProgreso.Update
 End Sub
+Private Sub sUltimosDatos()
+'Por ahora solo dejar pasar el error.
+On Error Resume Next
+    Dim NivelSuperior As Double
+    Dim NivelAnidado1 As Double
+    Dim NivelAnidado2 As Double
+    
+    For NivelSuperior = 0 To Len(RtxtLibro)
+        RtxtLibro.SelStart = NivelSuperior
+        RtxtLibro.SelLength = 1
+        If RtxtLibro.SelColor = vbBlack Then
+            RtxtLibro.SelStart = NivelSuperior - 2
+            'Se le restan 500 porque este comando solo se usa en caso de haberse iniciado la lectura.
+            NivelAnidado1 = RtxtLibro.SelStart - 500
+            GoTo Salir
+            Exit For
+        End If
+    Next
+    
+Salir:
+Dim vParar As Boolean
+'MsgBox ("Inicio " & NivelAnidado1)
+Do While (vParar <> True)
+    NivelAnidado1 = NivelAnidado1 - 1
+    RtxtLibro.SelStart = NivelAnidado1
+    RtxtLibro.SelLength = 1
+    'Debug.Print RTC & RTC & RtxtLibro.SelText
+    If RtxtLibro.SelText = " " Then
+        RtxtLibro.SelLength = 500
+        'Debug.Print "Estoy en " & NivelAnidado1 & RTC & "=" & RtxtLibro.Text '(prUltimosDatosLeidos)
+        vParar = True
+        sDecir RtxtLibro.SelText
+        RtxtLibro.SelBold = True
+        RtxtLibro.SelFontSize = 14
+        RtxtLibro.SelColor = vbGreen
+        RtxtLibro.SelStart = RtxtLibro.SelStart + RtxtLibro.SelLength
+        fGuardarLibro 'Guarda la lectura en progreso. Originalmente se guardaba al guardar en base.
+        'RaiseEvent ClickIniciarLectura(RtxtLibro.SelText)
+        'MsgBox (NivelAnidado1 & " voy " & RtxtLibro.SelText)
+        Exit Do
+    End If
+Loop
 
+
+
+'        fGuardarLibro 'Guarda la lectura en progreso. Originalmente se guardaba al guardar en base.
+'        RaiseEvent ClickIniciarLectura(RtxtLibro.SelText)
+    'sDecir prUltimosDatosLeidos
+End Sub
 
 Public Property Get prHabilitarPegar() As Boolean
     prHabilitarAnexar = cmdPegar.Enabled
@@ -372,7 +429,9 @@ Public Property Let SelText(Nuevo As Variant)
     MsgBox ("La propiedad es de solo lectura.")
 End Property
 
-Public Function FLen() As Integer
+Public Function FLen() As Double
+'On Error Resume Next
+'El desbordamiento de pila se debio a que estaba usando un integer cuando en realidad tenia que usar un double o un long.
     FLen = Len(RtxtLibro.Text)
 End Function
 
@@ -455,10 +514,8 @@ Public Function fTextoSeleccionado() As Variant
     RaiseEvent EveSePuedeContinuar(vSePuedeContinuar)
     If vSePuedeContinuar = False Then Exit Function 'Detiene la funcion. De lo contrario se seleccionaria una fraccion inecesaria de texto en clsRichlectura_sDecir no se leeria esa ultima fraccion de texto con lo cual quedaria en el olvido.
     
-    
     RtxtLibro.Enabled = False 'Se deshabilita para evitar que el usuario toque la zona de texto durante la seleccion de datos.
     On Error GoTo AccionesCorrectivas
-    
     
     Dim vMaxLen As Integer
     vMaxLen = 500
@@ -527,7 +584,7 @@ End Sub
 Public Function fContinuarLeyendo() As Variant
 'permite continuar leyendo una vez inicializada la lectura.
     sDecir fTextoSeleccionado
-    fContinuarLeyendo = prUltomosDatosLeidos
+    fContinuarLeyendo = prUltimosDatosLeidos
 End Function
 
 Private Sub sDecir(Datos As Variant)
@@ -543,19 +600,19 @@ Private Sub sDecir(Datos As Variant)
         
         
         'DirectSS1.AudioReset
-        prUltomosDatosLeidos = fDepurandoTexto(Datos, RtxtLibro)  'Copia del ultimo texto leido.
+        prUltimosDatosLeidos = fDepurandoTexto(Datos, RtxtLibro)  'Copia del ultimo texto leido.
         'DirectSS1.Speak "Hola Rafa"
-        'DirectSS1.Speak prUltomosDatosLeidos   'vControles.fDepurandoTexto(Datos, RtxtLibro)  'Los datos se depuran en el Sub Decir; porque Decir se llama para leer los ultimos datos en una nueva secion. Los ultimos datos leidos estan sin depurar para evitar perdidas de informacion.
+        'DirectSS1.Speak prUltimosDatosLeidos   'vControles.fDepurandoTexto(Datos, RtxtLibro)  'Los datos se depuran en el Sub Decir; porque Decir se llama para leer los ultimos datos en una nueva secion. Los ultimos datos leidos estan sin depurar para evitar perdidas de informacion.
         fGuardarLibro 'Guarda la lectura en progreso. Originalmente se guardaba al guardar en base.
-        RaiseEvent ClickIniciarLectura(prUltomosDatosLeidos)
+        RaiseEvent ClickIniciarLectura(prUltimosDatosLeidos)
         
         'Los ultimos datos se guardan automaticamente. Para evitar perdidas.
         'Reactivar la siguiente linea al finalizar.
-        'CBase.LetF prUltomosDatosLeidos, "UltimosDatos"
+        'CBase.LetF prUltimosDatosLeidos, "UltimosDatos"
         
         '___________________________________________________________________
         
-        'vControles.sAddDiezCargas prUltomosDatosLeidos 'Agrega 10 cargas de texto y reinicia la lista.
+        'vControles.sAddDiezCargas prUltimosDatosLeidos 'Agrega 10 cargas de texto y reinicia la lista.
         
         'Habilitar la siguiente linea
         'CBase.LetF prDepurandoTextoUltimoTexto, "DepurandoTexto_ultimo_texto"
@@ -643,7 +700,7 @@ End Sub
 Private Sub cmdLeer_Click()
     cmdAnexar.Enabled = False
     tSegundosDeLectura.Enabled = True 'no va aquí. Va en el evento DirectSS1_AudioStart.
-    prDepurandoTextoUltimoTexto = "" 'Se borra la informacion de la propiedad porque ya ha sido concatenada al final de la propiedad prUltomosDatosLeidos.
+    prDepurandoTextoUltimoTexto = "" 'Se borra la informacion de la propiedad porque ya ha sido concatenada al final de la propiedad prUltimosDatosLeidos.
     
     'OptContinuar_Click 'Activo el Option de la lectura
     RaiseEvent ClickContinuar(True)
@@ -671,12 +728,13 @@ End Sub
 Private Sub cmdLeerUltimosDatos_Click()
     tSegundosDeLectura.Enabled = True 'no va aquí. Va en el evento DirectSS1_AudioStart.
     
-    prDepurandoTextoUltimoTexto = "" 'Se borra la informacion de la propiedad porque ya ha sido concatenada al final de la propiedad prUltomosDatosLeidos.
+    prDepurandoTextoUltimoTexto = "" 'Se borra la informacion de la propiedad porque ya ha sido concatenada al final de la propiedad prUltimosDatosLeidos.
     'ProgressBar1.Max = Len(RtxtLibro.Text)'No es necesario porque el Max se carga al cargar los datos de la base de datos.
     'OptParar_Click
     'OptContinuar_Click
+    
     RaiseEvent ClickLeerultimosDatos
-    sDecir prUltomosDatosLeidos
+    sDecir prUltimosDatosLeidos
 End Sub
 
 
@@ -856,21 +914,21 @@ AccionesCorrectivas:
     MsgBox "Tengo problemas con prMinutosLeyendoprMinutosLeyendo"
 End Property
 
-Public Property Get prUltomosDatosLeidos() As Variant 'Guarda los ultimos datos que se leyeron.
+Public Property Get prUltimosDatosLeidos() As Variant 'Guarda los ultimos datos que se leyeron.
     On Error GoTo N
-    prUltomosDatosLeidos = TxtUltomosDatosLeidos.Text 'vUltomosDatosLeidos
+    prUltimosDatosLeidos = TxtUltomosDatosLeidos.Text 'vUltomosDatosLeidos
     Exit Property
 N:
-    MsgBox "Tengo problemas con prUltomosDatosLeidos"
+    MsgBox "Tengo problemas con prUltimosDatosLeidos"
 End Property
-Public Property Let prUltomosDatosLeidos(vNuevosDatos As Variant)  'Guarda los ultimos datos que se leyeron.
+Public Property Let prUltimosDatosLeidos(vNuevosDatos As Variant)  'Guarda los ultimos datos que se leyeron.
     On Error GoTo N
     TxtUltomosDatosLeidos.Text = vNuevosDatos
     'vUltomosDatosLeidos = vNuevosDatos
-    PropertyChanged "prUltomosDatosLeidos"
+    PropertyChanged "prUltimosDatosLeidos"
     Exit Property
 N:
-    MsgBox "Tengo problemas con prUltomosDatosLeidos"
+    MsgBox "Tengo problemas con prUltimosDatosLeidos"
 End Property
 
 Public Property Get prPorcentaje() As Double 'Se guarda el porcentaje calculado por si necesita llamarse de nuevo en otra parte del codigo.
@@ -897,6 +955,7 @@ End Sub
 
 Private Sub sAbrirLecturaEnProgreso(ByRef RichTextBox_nombre As Object, Nombre_del_libro As Variant) 'Abre el libro que se esta leyendo.
     On Error GoTo AccionesCorrectivas
+        RtxtUltimoTextoLeido.LoadFile App.Path & "\" & Nombre_del_libro & "UltimosDatos.Lectura"   'Abre el archivo
         RichTextBox_nombre.LoadFile App.Path & "\" & Nombre_del_libro & ".Lectura"   'Abre el archivo
     Exit Sub
 AccionesCorrectivas:
@@ -920,11 +979,12 @@ End Sub
 
 Private Function fGuardarLecturaEnProgreso(ByRef RichTextBox_nombre As Object, ByRef Nombre_del_libro As Variant) 'Guarda la lectura en progreso.
     On Error GoTo AccionesCorrectivas
+    RtxtUltimoTextoLeido.SaveFile App.Path & "\" & Nombre_del_libro & "UltimosDatos.Lectura"
     TxtNombreDelLibro.Text = Nombre_del_libro
     RichTextBox_nombre.SaveFile App.Path & "\" & Nombre_del_libro & ".Lectura"
     fGuardarLecturaEnProgreso = App.Path & "\" & Nombre_del_libro & ".Lectura"
     'No se agregan registros porque solo existe un registro para este programa por el momento.
-    DataEnvironment1.rsLecturaEnProgreso.Update
+    'DataEnvironment1.rsLecturaEnProgreso.Update
     Exit Function
 AccionesCorrectivas:
     MsgBox "Tengo problemas con GuardarLecturaEnProgreso" & RTC & Err.Description
@@ -999,6 +1059,10 @@ Private Sub cmdPegar_MouseUp(Button As Integer, Shift As Integer, X As Single, Y
 End Sub
 
 
+Private Sub CmdUltimoAntesDeCerrar_Click()
+    sUltimosDatos
+End Sub
+
 Private Sub mnuAnexarTexto_Click()
     cmdAnexar_Click
 End Sub
@@ -1010,6 +1074,10 @@ End Sub
 Private Sub MnuPegar_Click()
     cmdPegar_Click
 End Sub
+
+'Private Sub RtxtLibro_KeyPress(KeyAscii As Integer)
+'    Debug.Print KeyAscii
+'End Sub
 
 Private Sub RtxtLibro_MouseUp(Button As Integer, Shift As Integer, X As Single, Y As Single)
     If Button = 2 Then
@@ -1062,3 +1130,19 @@ Private Sub sEliminarLibro() 'Elimina la lectura en progreso y el BackUp.
 AccionesCorrectivas:
         MsgBox Err.Description '"Tengo problemas con clsRichlectura_sEliminarLibro" & RTC & "No se pudo eliminar el libro.", vbCritical
 End Sub
+
+Public Property Get PrHabilitarLeer() As Boolean
+    PrHabilitarLeer = cmdLeer.Enabled
+End Property
+
+Public Property Let PrHabilitarLeer(Nuevo As Boolean)
+    cmdLeer.Enabled = Nuevo
+End Property
+
+Public Property Get PrHabilitarUltimosDatos() As Boolean
+    PrHabilitarUltimosDatos = cmdLeerUltimosDatos.Enabled
+End Property
+Public Property Let PrHabilitarUltimosDatos(Nuevo As Boolean)
+    cmdLeerUltimosDatos.Enabled = Nuevo
+    RtxtLibro.Enabled = Nuevo
+End Property
