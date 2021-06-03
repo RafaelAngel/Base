@@ -52,8 +52,8 @@ Begin VB.Form FrmNuevoLectura
       TabIndex        =   1
       Top             =   0
       Width           =   7335
-      _extentx        =   12938
-      _extenty        =   8281
+      _ExtentX        =   12938
+      _ExtentY        =   8281
    End
    Begin NuevoLectura.Hablar Hablar1 
       Height          =   4575
@@ -61,8 +61,8 @@ Begin VB.Form FrmNuevoLectura
       TabIndex        =   0
       Top             =   0
       Width           =   2895
-      _extentx        =   5106
-      _extenty        =   8070
+      _ExtentX        =   5106
+      _ExtentY        =   8070
    End
    Begin VB.Label LbStatus 
       BorderStyle     =   1  'Fixed Single
@@ -178,7 +178,7 @@ Private Sub mnuAbrirLibro_Click()
 End Sub
 
 Private Sub MnuLibros_Click()
-    FrmLibrosLeidos.Show 'vbModal, Me
+    'FrmLibrosLeidos.Show 'vbModal, Me
 End Sub
 
 Private Sub mnuSalir_Click()

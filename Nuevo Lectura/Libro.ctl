@@ -282,7 +282,6 @@ Begin VB.UserControl Libro
       _ExtentX        =   1296
       _ExtentY        =   873
       _Version        =   393217
-      Enabled         =   -1  'True
       TextRTF         =   $"Libro.ctx":0000
    End
    Begin RichTextLib.RichTextBox RtxtLibro 
@@ -294,6 +293,7 @@ Begin VB.UserControl Libro
       _ExtentX        =   12726
       _ExtentY        =   6588
       _Version        =   393217
+      Enabled         =   -1  'True
       ScrollBars      =   3
       TextRTF         =   $"Libro.ctx":0082
    End
@@ -352,20 +352,23 @@ Public Sub GuardarPropiedades()
 End Sub
 Private Sub sUltimosDatos()
 'Por ahora solo dejar pasar el error.
-On Error Resume Next
+'On Error Resume Next
+RtxtLibro.SetFocus
     Dim NivelSuperior As Double
     Dim NivelAnidado1 As Double
     Dim NivelAnidado2 As Double
     
-    For NivelSuperior = 0 To Len(RtxtLibro)
+    For NivelSuperior = 0 To Len(RtxtLibro.Text)
+        DoEvents
         RtxtLibro.SelStart = NivelSuperior
         RtxtLibro.SelLength = 1
         If RtxtLibro.SelColor = vbBlack Then
             RtxtLibro.SelStart = NivelSuperior - 2
             'Se le restan 500 porque este comando solo se usa en caso de haberse iniciado la lectura.
             NivelAnidado1 = RtxtLibro.SelStart - 500
-            GoTo Salir
             Exit For
+            GoTo Salir
+            
         End If
     Next
     
@@ -373,11 +376,19 @@ Salir:
 Dim vParar As Boolean
 'MsgBox ("Inicio " & NivelAnidado1)
 Do While (vParar <> True)
+    DoEvents
     NivelAnidado1 = NivelAnidado1 - 1
+    If NivelAnidado1 < 0 Then
+        NivelAnidado1 = 0
+        RtxtLibro.SelStart = NivelAnidado1
+        vParar = True
+        GoTo S
+    End If
     RtxtLibro.SelStart = NivelAnidado1
     RtxtLibro.SelLength = 1
     'Debug.Print RTC & RTC & RtxtLibro.SelText
     If RtxtLibro.SelText = " " Then
+S:
         RtxtLibro.SelLength = 500
         'Debug.Print "Estoy en " & NivelAnidado1 & RTC & "=" & RtxtLibro.Text '(prUltimosDatosLeidos)
         vParar = True
@@ -389,7 +400,7 @@ Do While (vParar <> True)
         fGuardarLibro 'Guarda la lectura en progreso. Originalmente se guardaba al guardar en base.
         'RaiseEvent ClickIniciarLectura(RtxtLibro.SelText)
         'MsgBox (NivelAnidado1 & " voy " & RtxtLibro.SelText)
-        Exit Do
+        'Exit Do
     End If
 Loop
 
